@@ -1,4 +1,4 @@
-package net.projecteuler.problems;
+package net.projecteuler.problems
 
 /**
  * <p>One has to notice that the top-right diagonal is just the squares of the column number,
@@ -16,22 +16,22 @@ package net.projecteuler.problems;
  * </pre></blockquote>
  *
  * Hence this solution.</p>
-*/
-public class _28_SpiralDiagSum {
+ */
 
-    public static final int SPIRAL_SIZE = 101;
+val spiralSize = 101
 
-    public static void main(String[] args) {
-        System.out.println(spiralSum(SPIRAL_SIZE));
+fun main(args: Array<String>) {
+    println(spiralSum(spiralSize))
+}
+
+fun spiralSum(size: Int): Int {
+    var sum = 1
+    var i = 3
+    while (i <= size) {
+        val n = i * i
+        val v = i - 1
+        sum += 4 * n - 6 * v
+        i += 2
     }
-
-    public static int spiralSum(int size) {
-        int sum = 1;
-        for(int i = 3; i <= size; i += 2) {
-            int n = i*i;
-            int v = i-1;
-            sum += 4*n - 6*v;
-        }
-        return sum;
-    }
+    return sum
 }

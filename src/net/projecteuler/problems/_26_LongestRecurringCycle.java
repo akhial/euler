@@ -1,5 +1,11 @@
 package net.projecteuler.problems;
 
+/**
+ * <p>We calculate all the remainders storing them as we go, when we encounter a remainder
+ * we have already stored we stop. Then we get:</p>
+ *
+ * <p>CycleLength = CurrentEncounterIndex - FirstEncounterIndex</p>
+ */
 public class _26_LongestRecurringCycle {
 
     public static final int MAX_REMAINDER = 1000;

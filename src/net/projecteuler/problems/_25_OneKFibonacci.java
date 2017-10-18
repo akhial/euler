@@ -4,6 +4,9 @@ import net.projecteuler.api.Fibonacci;
 
 import java.math.BigInteger;
 
+/**
+ * <p>Cheating XD, simply use the Java implementation of {@link BigInteger}.</p>
+ */
 public class _25_OneKFibonacci {
 
     public static void main(String[] args) {

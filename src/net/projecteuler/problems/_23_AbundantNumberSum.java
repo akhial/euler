@@ -2,6 +2,12 @@ package net.projecteuler.problems;
 
 import java.util.Arrays;
 
+/**
+ * <p>For this problem I brute-forced all abundant numbers, then I check each number to find if
+ * the addend required is not abundant.</p>
+ * <p>In other words, for any n < 28123 if for every abundant number i there doesn't exist an abundant number j where: i+j=n
+ * I add that n to the sum.</p>
+ */
 public class _23_AbundantNumberSum {
 
     private static final int ABUNDANT_TOTAL = 6965;

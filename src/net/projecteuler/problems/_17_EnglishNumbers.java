@@ -1,5 +1,8 @@
 package net.projecteuler.problems;
 
+/**
+ * <p>Just some boring code to generate the english spoken numbers, then sum.</p>
+ */
 public class _17_EnglishNumbers {
 
     public static void main(String[] args) {
@@ -13,9 +16,8 @@ public class _17_EnglishNumbers {
     private static int letterCount(int n) {
         StringBuilder sb = new StringBuilder();
         if(n > 1000 || n < 0)
-            throw new IllegalStateException("Number has to be smaller than 1000");
+            throw new IllegalStateException("Number has to be smaller than 1000"); // for the lulz
         if(n == 1000) {
-            //System.out.println("onethousand");
             return "onethousand".length();
         }
         sb.append(numerals(n/100));
@@ -64,7 +66,7 @@ public class _17_EnglishNumbers {
         return "";
     }
 
-    private static String tens(int n) {
+    private static String tens(int n) { // very beautiful code
         if(n > 9 || n < 2)
             throw new IllegalStateException("2 to 9 positives only");
         switch(n) {
@@ -88,7 +90,7 @@ public class _17_EnglishNumbers {
         return "";
     }
 
-    private static String teens(int n) {
+    private static String teens(int n) { // doge impressed, much wow
         if(n > 9 || n < 0)
             throw new IllegalStateException("0 to 9 positives only");
         switch(n) {

@@ -1,5 +1,8 @@
 package net.projecteuler.problems;
 
+/**
+ * Simple recursive function gets this done. Start at the top and move down using the max() function.
+ */
 public class _18_MaximumPath {
 
     private static final int numberOfRows = 15;

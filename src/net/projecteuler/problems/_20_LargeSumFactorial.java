@@ -4,6 +4,9 @@ import net.projecteuler.api.GeneralMath;
 
 import java.math.BigInteger;
 
+/**
+ * <p>EZ (Use Java lambdas to get the chars then map them to their numeric value.. sum.)</p>
+ */
 public class _20_LargeSumFactorial {
 
     public static void main(String[] args) {

@@ -1,5 +1,9 @@
 package net.projecteuler.problems;
 
+/**
+ * <p>Solved this by actually implementing a calendar :P, after that you iterate over all possible dates remembering
+ * the sundays as they occur.</p>
+ */
 public class _19_FirstSundays {
 
     private static final int[] monthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};

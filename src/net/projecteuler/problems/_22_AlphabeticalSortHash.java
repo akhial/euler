@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * <p>Used the Java API to replace each name with it's code. The relevant code here is
+ * {@code s -> s.chars().map(c -> c - 64).sum()}.</p>
+ */
 public class _22_AlphabeticalSortHash {
 
     public static void main(String[] args) throws IOException {

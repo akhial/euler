@@ -1,5 +1,10 @@
 package net.projecteuler.problems;
 
+/**
+ * <p>To find all amicable numbers I calculate all d(n) for n<10000, then I look for the numbers i whose
+ * divisorSum is equal to an element in the previously calculated d(n) different than i, and inferior to the maximum.
+ * In which case if the divisorSum of that element is equal to i I consider it amicable, and add it to the sum.</p>
+ */
 public class _21_AmicableSum {
 
     private static final int MAX = 10000;

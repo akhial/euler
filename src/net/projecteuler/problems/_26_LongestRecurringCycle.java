@@ -2,6 +2,8 @@ package net.projecteuler.problems;
 
 public class _26_LongestRecurringCycle {
 
+    public static final int MAX_REMAINDER = 1000;
+
     public static void main(String[] args) {
         int max = 0;
 
@@ -10,7 +12,6 @@ public class _26_LongestRecurringCycle {
                 max = denominator;
             }
         }
-
         System.out.println(max);
     }
 
@@ -25,9 +26,9 @@ public class _26_LongestRecurringCycle {
         return index;
     }
         
-    private static int cycleLength(int denominator) {
+    public static int cycleLength(int denominator) {
         int cycle = 0;
-        int[] remainders = new int[1000];
+        int[] remainders = new int[MAX_REMAINDER];
         int index = 0;
         int first = 0;
         int remainder = 1%denominator;

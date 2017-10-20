@@ -3,7 +3,7 @@ package net.projecteuler.problems
 import java.math.BigInteger
 
 /**
- * Use BigInteger, then store in a set to remove duplicates.
+ * <p>Use BigInteger, then store in a set to remove duplicates.</p>
  */
 
 val maxA = 100

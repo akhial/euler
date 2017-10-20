@@ -1,12 +1,11 @@
-package net.projecteuler
+package net.projecteuler.problems
 
-import net.projecteuler.problems.*
 import org.junit.Assert
 import org.junit.Test
 
 class _28_SpiralSumTest {
 
-    @Test fun spiralSumTest() {
+    @Test fun spiralSum() {
         Assert.assertEquals(101, spiralSum(5).toLong())
     }
 }

@@ -17,7 +17,6 @@ public class _27_MaxPrimeFormula {
             for(int b = -1000; b < 1000; b++) {
                 if((newMax = primesGenerated(a, b)) > max) {
                     max = newMax;
-                    System.out.println(max);
                     product = a*b;
                 }
             }

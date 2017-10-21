@@ -2,7 +2,7 @@ package net.projecteuler.api;
 
 import java.math.BigInteger;
 
-public class GeneralMath {
+public class Factorial {
 
     public static long factorial(int n) {
         long result = 1;
@@ -22,7 +22,7 @@ public class GeneralMath {
         if(n == 1)
             return BigInteger.ONE;
         BigInteger result = BigInteger.ONE;
-        for(int i = 1; i < n+1; i++) {
+        for(int i = 1; i < n + 1; i++) {
             result = result.multiply(new BigInteger(Integer.toString(i)));
         }
         return result;

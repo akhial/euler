@@ -57,21 +57,26 @@ public class _11_GridProduct {
     }
 
     private static long up(int i, int j) {
-        return grid[j][i] * grid[j][i - 1] * grid[j][i - 2] * grid[j][i - 3];
+        return grid[j][i]*grid[j][i - 1]*grid[j][i - 2]*grid[j][i - 3];
     }
+
     private static long down(int i, int j) {
-        return grid[j][i] * grid[j][i + 1] * grid[j][i + 2] * grid[j][i + 3];
+        return grid[j][i]*grid[j][i + 1]*grid[j][i + 2]*grid[j][i + 3];
     }
+
     private static long left(int i, int j) {
-        return grid[j][i] * grid[j - 1][i] * grid[j - 2][i] * grid[j - 3][i];
+        return grid[j][i]*grid[j - 1][i]*grid[j - 2][i]*grid[j - 3][i];
     }
+
     private static long right(int i, int j) {
-        return grid[j][i] * grid[j + 1][i] * grid[j + 2][i] * grid[j + 3][i];
+        return grid[j][i]*grid[j + 1][i]*grid[j + 2][i]*grid[j + 3][i];
     }
+
     private static long rDiagonal(int i, int j) {
-        return grid[j][i] * grid[j + 1][i + 1] * grid[j + 2][i + 2] * grid[j + 3][i + 3];
+        return grid[j][i]*grid[j + 1][i + 1]*grid[j + 2][i + 2]*grid[j + 3][i + 3];
     }
+
     private static long lDiagonal(int i, int j) {
-        return grid[j][i] * grid[j + 1][i - 1] * grid[j + 2][i - 2] * grid[j + 3][i - 3];
+        return grid[j][i]*grid[j + 1][i - 1]*grid[j + 2][i - 2]*grid[j + 3][i - 3];
     }
 }

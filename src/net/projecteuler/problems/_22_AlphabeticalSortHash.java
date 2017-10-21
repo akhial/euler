@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
  * <p>Used the Java API to replace each name with it's code. The relevant code here is
  * {@code s -> s.chars().map(c -> c - 64).sum()}.</p>
  */
+
 public class _22_AlphabeticalSortHash {
 
     public static void main(String[] args) throws IOException {
@@ -22,7 +23,7 @@ public class _22_AlphabeticalSortHash {
                 .map(s -> s.chars().map(c -> c - 64).sum())
                 .collect(Collectors.toList());
         for(int i = 0; i < values.size(); i++)
-            values.set(i, values.get(i)*(i+1));
-        System.out.println(values.stream().reduce(0, (x, y) -> x+y));
+            values.set(i, values.get(i)*(i + 1));
+        System.out.println(values.stream().reduce(0, (x, y) -> x + y));
     }
 }

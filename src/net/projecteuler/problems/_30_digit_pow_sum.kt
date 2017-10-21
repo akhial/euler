@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.getDigit
-import net.projecteuler.api.getLength
+import net.projecteuler.api.length
 
 /**
  * <p>When you use existing functions to get a digit at an index all you have to do is do the math.</p>
@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     println(sum)
 }
 
-fun Int.isSumExpressible(exponent: Int) : Boolean {
-    val sum = (1..this.getLength()).sumBy { Math.pow(this.getDigit(it -1).toDouble(), exponent.toDouble()).toInt() }
+fun Int.isSumExpressible(exponent: Int): Boolean {
+    val sum = (1..this.length()).sumBy { Math.pow(this.getDigit(it - 1).toDouble(), exponent.toDouble()).toInt() }
     return this == sum
 }

@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.GeneralMath;
+import net.projecteuler.api.Factorial;
 
 import java.math.BigInteger;
 
@@ -11,6 +11,6 @@ public class _15_LatticeRoutes {
     }
 
     private static BigInteger factorial(int n) {
-        return GeneralMath.largeFactorial(n);
+        return Factorial.largeFactorial(n);
     }
 }

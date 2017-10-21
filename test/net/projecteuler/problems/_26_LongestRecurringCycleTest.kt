@@ -5,7 +5,8 @@ import org.junit.Test
 
 class _26_LongestRecurringCycleTest {
 
-    @Test fun cycleLength() {
+    @Test
+    fun cycleLength() {
         Assert.assertEquals(6, _26_LongestRecurringCycle.cycleLength(7).toLong())
     }
 }

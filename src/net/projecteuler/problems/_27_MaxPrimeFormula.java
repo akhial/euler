@@ -7,6 +7,7 @@ import net.projecteuler.api.QuadraticExp;
  * <p>Straightforward, iterate over all quadratic expressions of the form n^2 + an + b
  * and find the one which generates the most primes consecutively.</p>
  */
+
 public class _27_MaxPrimeFormula {
 
     public static void main(String[] args) {
@@ -30,6 +31,6 @@ public class _27_MaxPrimeFormula {
         while(Primes.isPrime(exp.calculateFor(x))) {
             x++;
         }
-        return x-1;
+        return x - 1;
     }
 }

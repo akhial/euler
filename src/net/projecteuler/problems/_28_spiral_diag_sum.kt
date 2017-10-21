@@ -24,13 +24,13 @@ fun main(args: Array<String>) {
     println(spiralSum(spiralSize))
 }
 
-fun spiralSum(size: Int) : Int {
+fun spiralSum(size: Int): Int {
     var sum = 1
     var i = 3
-    while (i <= size) {
-        val n = i * i
+    while(i <= size) {
+        val n = i*i
         val v = i - 1
-        sum += 4 * n - 6 * v
+        sum += 4*n - 6*v
         i += 2
     }
     return sum

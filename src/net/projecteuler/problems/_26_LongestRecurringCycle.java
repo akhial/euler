@@ -3,12 +3,12 @@ package net.projecteuler.problems;
 /**
  * <p>We calculate all the remainders storing them as we go, when we encounter a remainder
  * we have already stored we stop. Then we get:</p>
- *
  * <p>CycleLength = CurrentEncounterIndex - FirstEncounterIndex</p>
  */
+
 public class _26_LongestRecurringCycle {
 
-    public static final int MAX_REMAINDER = 1000;
+    private static final int MAX_REMAINDER = 1000;
 
     public static void main(String[] args) {
         int max = 0;
@@ -31,7 +31,7 @@ public class _26_LongestRecurringCycle {
         }
         return index;
     }
-        
+
     public static int cycleLength(int denominator) {
         int cycle = 0;
         int[] remainders = new int[MAX_REMAINDER];

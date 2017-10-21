@@ -8,6 +8,7 @@ import java.util.Arrays;
  * <p>In other words, for any n < 28123 if for every abundant number i there doesn't exist an abundant number j where: i+j=n
  * I add that n to the sum.</p>
  */
+
 public class _23_AbundantNumberSum {
 
     private static final int ABUNDANT_TOTAL = 6965;
@@ -41,7 +42,7 @@ public class _23_AbundantNumberSum {
     private static boolean isAbundant(int n) {
         int sum = 0;
 
-        for(int i = 1; i < n/2+1; i++) {
+        for(int i = 1; i < n/2 + 1; i++) {
             if(n%i == 0)
                 sum += i;
         }

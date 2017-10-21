@@ -8,8 +8,8 @@ public class _3_LargestPrimeFactor {
         long check = 600851475143L;
         long largestFactor = 1;
 
-        for(long l = 6; l < Math.sqrt(check); l++){
-            if(Primes.isPrime(l) && check % l == 0) {
+        for(long l = 6; l < Math.sqrt(check); l++) {
+            if(Primes.isPrime(l) && check%l == 0) {
                 largestFactor = l;
             }
         }

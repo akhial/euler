@@ -3,6 +3,7 @@ package net.projecteuler.problems;
 /**
  * <p>Just some boring code to generate the english spoken numbers, then sum.</p>
  */
+
 public class _17_EnglishNumbers {
 
     public static void main(String[] args) {

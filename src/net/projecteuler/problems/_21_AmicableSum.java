@@ -5,6 +5,7 @@ package net.projecteuler.problems;
  * divisorSum is equal to an element in the previously calculated d(n) different than i, and inferior to the maximum.
  * In which case if the divisorSum of that element is equal to i I consider it amicable, and add it to the sum.</p>
  */
+
 public class _21_AmicableSum {
 
     private static final int MAX = 10000;
@@ -14,11 +15,11 @@ public class _21_AmicableSum {
         int[] pastSums = new int[MAX];
 
         for(int i = 2; i < MAX; i++) {
-            pastSums[i-2] = divisorSum(i);
+            pastSums[i - 2] = divisorSum(i);
         }
         for(int i = 2; i < MAX; i++) {
-            if(pastSums[i-2] < MAX && pastSums[i-2] > 1 && pastSums[i-2] != i)
-                if(pastSums[pastSums[i-2]-2] == i)
+            if(pastSums[i - 2] < MAX && pastSums[i - 2] > 1 && pastSums[i - 2] != i)
+                if(pastSums[pastSums[i - 2] - 2] == i)
                     total += i;
         }
         System.out.println(total);

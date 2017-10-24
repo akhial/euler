@@ -36,7 +36,7 @@ public class _26 {
         int cycle = 0;
         int[] remainders = new int[MAX_REMAINDER];
         int index = 0;
-        int first = 0;
+        int first;
         int remainder = 1%denominator;
         while((first = search(remainder, remainders)) == -1 && remainder != 0) {
             cycle++;

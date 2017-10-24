@@ -12,7 +12,7 @@ public class _27 {
 
     public static void main(String[] args) {
         int max = 0;
-        int newMax = 0;
+        int newMax;
         int product = 0;
         for(int a = -1000; a < 1000; a++) {
             for(int b = -1000; b < 1000; b++) {

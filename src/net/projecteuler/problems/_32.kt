@@ -2,9 +2,8 @@ package net.projecteuler.problems
 
 import net.projecteuler.api.*
 
-
 /**
- * The main challenge with this problem was finding the permutations of given digits with a given length.
+ * The main challenge-ish with this problem was finding the permutations of given digits with a given length.
  * For that I used a recursive function:
  *
  * We try all digits in an [IntArray] at the beginning and proceed to generate the remaining digits. We keep

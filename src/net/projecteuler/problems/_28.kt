@@ -1,9 +1,9 @@
 package net.projecteuler.problems
 
 /**
- * <p>One has to notice that the top-right diagonal is just the squares of the column number,
+ * One has to notice that the top-right diagonal is just the squares of the column number,
  * then you find that the four corners are that square minus the column number - 1. eg:
- * <blockquote><pre>
+ *
  *          21 22 23 24 25 <- 25 = 5*5
  *          20  7  8  9 10
  *          19  6  1  2 11
@@ -13,9 +13,8 @@ package net.projecteuler.problems
  *          21 = 25 -4
  *          17 = 25 -4 -4
  *          13 = 25 -4 -4 -4
- * </pre></blockquote>
  *
- * Hence this solution.</p>
+ * Hence this solution.
  */
 
 val spiralSize = 1001

@@ -4,8 +4,8 @@ import net.projecteuler.api.getDigit
 import net.projecteuler.api.length
 
 /**
- * <p>When you use existing functions to get a digit at an index all you have to do is do the math.</p>
- * <p>The max is approximate due to the fact that 9^5 * 6 = 354294, so no number can be bigger and still be expressible.
+ * When you use existing functions to get a digit at an index all you have to do is do the math.
+ * The max is approximate due to the fact that 9^5 * 6 = 354294, so no number can be bigger and still be expressible.
  */
 
 val max = 500_000

@@ -4,6 +4,8 @@ import java.math.BigInteger;
 
 public class Factorial {
 
+    private Factorial() {}
+
     public static long factorial(int n) {
         long result = 1;
         if(n == 0)

@@ -5,8 +5,8 @@ import net.projecteuler.api.length
 import net.projecteuler.api.shr
 
 /**
- * Brute-force, the 78499th prime = 1000003 is the first prime over 1 million.
- * Spectacularly inefficient because I re-calculate a full eratosthenes sieve for each prime but it works so meh.
+ * Brute-force, to check for circularity I shift the prime continuously to the right length times.
+ * Checking if its prime each time.
  *
  * @see [Primes.nthPrime], [Primes.isPrime].
  */
@@ -17,16 +17,18 @@ fun main(args: Array<String>) {
 
 fun circularPrimeCount(): Int {
     var count = 0
-    for(i in 1 until 78499) {
-        var prime = Primes.nthPrime(i)
-        var isCircular = true
-        var j = 0
-        while(isCircular && j < prime.length()) {
-            prime = prime.shr()
-            isCircular = Primes.isPrime(prime.toLong())
-            j++
+    for(n in 1 until 1000000) {
+        if(Primes.isPrime(n)) {
+            var prime = n
+            var isCircular = true
+            var j = 0
+            while(isCircular && j < prime.length()) {
+                prime = prime.shr()
+                isCircular = Primes.isPrime(prime.toLong())
+                j++
+            }
+            if(isCircular) count++
         }
-        if(isCircular) count++
     }
     return count
 }

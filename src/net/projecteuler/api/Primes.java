@@ -2,6 +2,10 @@ package net.projecteuler.api;
 
 public class Primes {
 
+    public static boolean isPrime(int n) {
+        return isPrime((long) n);
+    }
+
     public static boolean isPrime(long n) {
         if(n < 2) return false;
         if(n == 2 || n == 3) return true;

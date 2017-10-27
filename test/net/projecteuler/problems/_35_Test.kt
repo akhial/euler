@@ -1,12 +1,13 @@
 package net.projecteuler.problems
 
+import net.projecteuler.api.shr
 import org.junit.Assert
 import org.junit.Test
 
 class _35_Test {
 
     @Test
-    fun shl() {
-        Assert.assertEquals("234561", "123456".shl())
+    fun shr() {
+        Assert.assertEquals(612345, 123456.shr())
     }
 }

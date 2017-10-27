@@ -113,3 +113,12 @@ fun Int.setDigit(digit: Int, index: Int): Int {
     if(index < 0 || index > length() - 1) return this
     return this + (pow(10.0, (length() - index) - 1.toDouble())*(digit - getDigit(index))).toInt()
 }
+
+/**
+ * Return true if int is prime.
+ *
+ * @see [Primes.isPrime].
+ */
+fun Int.isPrime(): Boolean {
+    return Primes.isPrime(this)
+}

@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.Primes
+import net.projecteuler.api.isPrime
 import net.projecteuler.api.length
 import net.projecteuler.api.shr
 
@@ -18,13 +19,13 @@ fun main(args: Array<String>) {
 fun circularPrimeCount(): Int {
     var count = 0
     for(n in 1 until 1000000) {
-        if(Primes.isPrime(n)) {
+        if(n.isPrime()) {
             var prime = n
             var isCircular = true
             var j = 0
             while(isCircular && j < prime.length()) {
                 prime = prime.shr()
-                isCircular = Primes.isPrime(prime.toLong())
+                isCircular = prime.isPrime()
                 j++
             }
             if(isCircular) count++

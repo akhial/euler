@@ -9,9 +9,8 @@ fun main(args: Array<String>) {
     println(palindromes())
 }
 
-fun palindromes(): Int {
-    return (1..1000000).filter { it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic() }.sum()
-}
+fun palindromes(): Int =
+        (1..1000000).filter { it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic() }.sum()
 
 fun String.isPalindromic(): Boolean {
     val first = this.substring(0 until length/2)

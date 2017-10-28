@@ -58,9 +58,7 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1): IntArray {
     return s
 }
 
-fun IntRange.permutations(): IntArray {
-    return toList().toIntArray().permutations()
-}
+fun IntRange.permutations(): IntArray = toList().toIntArray().permutations()
 
 /**
  * Same as [permutations] but stops when it reaches len digits. Used in problem 32.
@@ -82,9 +80,7 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1, len: Int = size,
     return s
 }
 
-fun IntRange.permutations(len: Int): IntArray {
-    return toList().toIntArray().permutations(len = len)
-}
+fun IntRange.permutations(len: Int): IntArray = toList().toIntArray().permutations(len = len)
 
 /**
  * One-liner that return the GCD of two integers.
@@ -95,9 +91,7 @@ fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a%b)
  * One-liner that shifts all digits circularly to the right.
  * eg: 123456 -> 612345
  */
-fun Int.shr(): Int {
-    return ((this%10)*pow(10.0, length().toDouble() - 1) + this/10).toInt()
-}
+fun Int.shr(): Int = ((this%10)*pow(10.0, length().toDouble() - 1) + this/10).toInt()
 
 /**
  * Return the reversed representation of the given int.
@@ -127,6 +121,4 @@ fun Int.setDigit(digit: Int, index: Int): Int {
  *
  * @see [Primes.isPrime].
  */
-fun Int.isPrime(): Boolean {
-    return Primes.isPrime(this)
-}
+fun Int.isPrime(): Boolean = Primes.isPrime(this)

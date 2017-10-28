@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class _22 {
 
     public static void main(String[] args) throws IOException {
-        List<Integer> values = Files.lines(Paths.get("C:\\Users\\Adel\\Desktop\\Names.txt"))
+        List<Integer> values = Files.lines(Paths.get("res/names.txt"))
                 .map(line -> line.replaceAll("\"", ""))
                 .map(line -> line.replaceAll(",", " "))
                 .flatMap(line -> Pattern.compile("\\s+").splitAsStream(line))

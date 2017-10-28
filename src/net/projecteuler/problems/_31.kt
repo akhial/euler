@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
     println(combinationsOf())
 }
 
-fun combinationsOf(addend: Int = coins.size-1, current: Int = 0): Int {
+fun combinationsOf(addend: Int = coins.size - 1, current: Int = 0): Int {
     if(current == amount) return 1
     if(current > amount || addend < 0) return 0
 

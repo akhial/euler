@@ -7,8 +7,8 @@ import java.lang.Math.*
  *
  * @param index the index.
  */
-fun Int.getDigit(index: Int): Int {
-    var exp = (length() - index - 1).toDouble()
+fun Int.getDigit(index: Int, len: Int = length()): Int {
+    var exp = (len - index - 1).toDouble()
     if(exp < 0) exp = 0.0
     val digit = this/pow(10.0, exp).toInt()
     return digit%10
@@ -36,7 +36,7 @@ fun Int.length(): Int {
  */
 fun Int.isPandigital(len: Int): Boolean {
     if(length() != len || len > 9) return false
-    val indices = (0 until len).map { getDigit(it) - 1 }
+    val indices = (0 until len).map { getDigit(it, len) - 1 }
     return indices.containsAll((0 until len).toList())
 }
 
@@ -58,6 +58,10 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1): IntArray {
     return s
 }
 
+fun IntRange.permutations(): IntArray {
+    return toList().toIntArray().permutations()
+}
+
 /**
  * Same as [permutations] but stops when it reaches len digits. Used in problem 32.
  *
@@ -76,6 +80,10 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1, len: Int = size,
         s = s.plus(filter { it != this[i] }.toIntArray().permutations(adv.toInt(), exp - 1, mask = pow))
     }
     return s
+}
+
+fun IntRange.permutations(len: Int): IntArray {
+    return toList().toIntArray().permutations(len = len)
 }
 
 /**

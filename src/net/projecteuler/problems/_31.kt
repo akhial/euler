@@ -1,7 +1,6 @@
 package net.projecteuler.problems
 
 /**
- * To be completely honest I don't even understand how I got this to work!
  * I had found this recursive solution two days before I finally found how to implement it.
  *
  * This is how it works: Start at 0, add the first coin and keep adding that coin until you

@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     println(truncateCount())
 }
 
-fun truncateCount(): Int {
+private fun truncateCount(): Int {
     var count = 0
     var n = 11
     var sum = 0

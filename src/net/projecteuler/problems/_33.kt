@@ -30,10 +30,10 @@ fun rdQuotient(a: Int, b: Int): Double {
         a > b -> 0.0
         a == b -> 0.0
         a%10 == 0 || b%10 == 0 -> 0.0
-        a.getDigit(0) == b.getDigit(0) -> a.getDigit(1).toDouble()/b.getDigit(1)
-        a.getDigit(0) == b.getDigit(1) -> a.getDigit(1).toDouble()/b.getDigit(0)
-        a.getDigit(1) == b.getDigit(0) -> a.getDigit(0).toDouble()/b.getDigit(1)
-        a.getDigit(1) == b.getDigit(1) -> a.getDigit(0).toDouble()/b.getDigit(0)
+        a[0] == b[0] -> a[1].toDouble()/b[1]
+        a[0] == b[1] -> a[1].toDouble()/b[0]
+        a[1] == b[0] -> a[0].toDouble()/b[1]
+        a[1] == b[1] -> a[0].toDouble()/b[0]
         else -> 0.0
     }
 }

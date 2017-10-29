@@ -15,7 +15,7 @@ import net.projecteuler.api.*
  * @see [permutations], [isPandigital].
  */
 
-val digits = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
+private val digits = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
 fun main(args: Array<String>) {
     println(pandigitalProducts())
@@ -28,7 +28,7 @@ fun pandigitalProducts(): Int {
                 .filter { isPanProduct(a, it) }
                 .forEach { products.add(a*it) }
     for(a in (1 until 10).toList().toIntArray().permutations(len = 2))
-        digits.filter { it != a.getDigit(0) && it != a.getDigit(1) }.toIntArray().permutations(len = 3)
+        digits.filter { it != a[0] && it != a[1] }.toIntArray().permutations(len = 3)
                 .filter { isPanProduct(a, it) }
                 .forEach { products.add(a*it) }
     return products.sum()

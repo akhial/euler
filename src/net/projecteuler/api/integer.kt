@@ -14,6 +14,8 @@ fun Int.getDigit(index: Int, len: Int = length()): Int {
     return digit%10
 }
 
+operator fun Int.get(i: Int): Int = getDigit(i)
+
 /**
  * Returns the length of a number in digits.
  */
@@ -100,7 +102,7 @@ fun Int.shr(): Int = ((this%10)*pow(10.0, length().toDouble() - 1) + this/10).to
 fun Int.reverse(): Int {
     var result = pow(10.0, length().toDouble() - 1).toInt()
     for(i in 0 until length())
-        result = result.setDigit(getDigit(i), length() - i - 1)
+        result = result.setDigit(length() - i - 1, getDigit(i))
     return result
 }
 
@@ -110,10 +112,10 @@ fun Int.reverse(): Int {
  * @param digit the digit
  * @param index the index must be >0 and <length
  */
-fun Int.setDigit(digit: Int, index: Int): Int {
+fun Int.setDigit(index: Int, digit: Int, len: Int = length()): Int {
     if(digit < 0 || digit > 9) return this
-    if(index < 0 || index > length() - 1) return this
-    return this + (pow(10.0, (length() - index) - 1.toDouble())*(digit - getDigit(index))).toInt()
+    if(index < 0 || index > len - 1) return this
+    return this + (pow(10.0, (len - index) - 1.toDouble())*(digit - getDigit(index))).toInt()
 }
 
 /**

@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.getDigit
+import net.projecteuler.api.get
 import net.projecteuler.api.length
 
 /**
@@ -18,6 +18,6 @@ fun main(args: Array<String>) {
 }
 
 fun Int.isSumExpressible(exponent: Int): Boolean {
-    val sum = (1..this.length()).sumBy { Math.pow(this.getDigit(it - 1).toDouble(), exponent.toDouble()).toInt() }
+    val sum = (1..this.length()).sumBy { Math.pow(this[it - 1].toDouble(), exponent.toDouble()).toInt() }
     return this == sum
 }

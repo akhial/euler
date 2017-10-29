@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
 fun factSum(): Int {
     var result = 0
     for(n in 3..50000) {
-        val sum = (0 until n.length()).sumBy { Factorial.factorial(n.getDigit(it)).toInt() }
+        val sum = (0 until n.length()).sumBy { Factorial.factorial(n[it]).toInt() }
         if(sum == n) result += n
     }
     return result

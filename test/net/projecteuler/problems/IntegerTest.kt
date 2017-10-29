@@ -17,9 +17,9 @@ class IntegerTest {
 
     @Test
     fun setDigit() {
-        Assert.assertEquals(100500, 100000.setDigit(5, 3))
-        Assert.assertEquals(100530, 100500.setDigit(3, 4))
-        Assert.assertEquals(1, 0.setDigit(1, 0))
+        Assert.assertEquals(100500, 100000.setDigit(3, 5))
+        Assert.assertEquals(100530, 100500.setDigit(4, 3))
+        Assert.assertEquals(1, 0.setDigit(0, 1))
     }
 
     @Test

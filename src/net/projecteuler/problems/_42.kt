@@ -9,7 +9,7 @@ import java.util.regex.Pattern
  * the 30th triangular number being larger), then you only have to split the text file and count the triangular words.
  */
 
-val triangles = Array(30, { (0.5*it*(it + 1)).toInt() })
+private val triangles = Array(30, { (0.5*it*(it + 1)).toInt() })
 
 fun main(args: Array<String>) {
     println(triangleWords())

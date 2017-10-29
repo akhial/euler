@@ -8,7 +8,7 @@ import net.projecteuler.api.length
  * The max is approximate due to the fact that 9^5 * 6 = 354294, so no number can be bigger and still be expressible.
  */
 
-val max = 500_000
+private val max = 500_000
 
 fun main(args: Array<String>) {
     val sum = (2..max)

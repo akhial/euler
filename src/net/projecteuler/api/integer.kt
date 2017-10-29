@@ -85,7 +85,7 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1, len: Int = size,
 fun IntRange.permutations(len: Int): IntArray = toList().toIntArray().permutations(len = len)
 
 /**
- * One-liner that return the GCD of two integers.
+ * One-liner that returns the GCD of two integers.
  */
 fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a%b)
 

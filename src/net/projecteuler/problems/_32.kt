@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
     println(pandigitalProducts())
 }
 
-fun pandigitalProducts(): Int {
+private fun pandigitalProducts(): Int {
     val products = HashSet<Int>()
     for(a in 1 until 10)
         digits.filter { it != a }.toIntArray().permutations(len = 4)
@@ -34,7 +34,7 @@ fun pandigitalProducts(): Int {
     return products.sum()
 }
 
-fun isPanProduct(a: Int, b: Int): Boolean {
+private fun isPanProduct(a: Int, b: Int): Boolean {
     val product = a*b
     if(product.length() > 4) return false
     val s = a.toString() + b.toString() + product.toString()

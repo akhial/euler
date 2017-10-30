@@ -9,7 +9,7 @@ fun main(args: Array<String>) {
     println(palindromes())
 }
 
-fun palindromes(): Int =
+private fun palindromes(): Int =
         (1..1000000).filter { it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic() }.sum()
 
 fun String.isPalindromic(): Boolean {

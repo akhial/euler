@@ -19,10 +19,4 @@ class _30_Test {
         Assert.assertEquals(1, 0.length())
         Assert.assertEquals(1, 5.length())
     }
-
-    @Test
-    fun isSumExpressible() {
-        Assert.assertEquals(true, 1634.isSumExpressible(4))
-        Assert.assertEquals(false, 8209.isSumExpressible(4))
-    }
 }

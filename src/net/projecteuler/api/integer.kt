@@ -14,7 +14,7 @@ fun Int.getDigit(index: Int, len: Int = length()): Int {
     return digit%10
 }
 
-operator fun Int.get(i: Int): Int = getDigit(i)
+operator fun Int.get(i: Int, len: Int = length()): Int = getDigit(i, len)
 
 /**
  * Returns the length of a number in digits.
@@ -44,7 +44,7 @@ fun Int.isPandigital(len: Int): Boolean {
 
 /**
  * A recursive function which returns an [IntArray] containing all the permutations of the digits given in
- * the calling object, permutations meaning arrangements with no repeats.
+ * the calling object, permutations meaning arrangements with no repeats (!!!).
  *
  * @param prefix the currently generated permutation.
  * @param exp the index of the digit we are currently generating.
@@ -55,7 +55,10 @@ fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1): IntArray {
     var s = intArrayOf()
     for(i in 0..exp) {
         val adv = prefix + pow(10.0, exp.toDouble())*this[i]
-        s = s.plus(filter { it != this[i] }.toIntArray().permutations(adv.toInt(), exp - 1))
+        var c = count { it == this[i] }
+        var f = filter { it != this[i] }
+        while(c-- > 1) f = f.plus(this[i])
+        s = s.plus(f.toIntArray().permutations(adv.toInt(), exp - 1))
     }
     return s
 }
@@ -124,3 +127,16 @@ fun Int.setDigit(index: Int, digit: Int, len: Int = length()): Int {
  * @see [Primes.isPrime].
  */
 fun Int.isPrime(): Boolean = Primes.isPrime(this)
+
+/**
+ * Returns an [IntArray] containing the digits of the given number.
+ */
+fun Int.digits(len: Int = length()): IntArray = Array(len, { this[it, len] }).toIntArray()
+
+/**
+ * Returns true if the given number has unique digits, false otherwise.
+ */
+fun Int.hasUniqueDigits(): Boolean {
+    val dg = digits()
+    return dg.none { d -> dg.count { it == d } > 1 }
+}

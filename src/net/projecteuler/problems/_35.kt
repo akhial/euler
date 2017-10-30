@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
     println(circularPrimeCount())
 }
 
-fun circularPrimeCount(): Int {
+private fun circularPrimeCount(): Int {
     var count = 0
     for(n in 1 until 1000000) {
         if(n.isPrime()) {

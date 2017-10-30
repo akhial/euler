@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
     println(spiralSum(spiralSize))
 }
 
-fun spiralSum(size: Int): Int {
+private fun spiralSum(size: Int): Int {
     var sum = 1
     var i = 3
     while(i <= size) {

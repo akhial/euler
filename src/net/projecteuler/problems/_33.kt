@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     println(denominatorValue())
 }
 
-fun denominatorValue(): Int {
+private fun denominatorValue(): Int {
     var productA = 1
     var productB = 1
     for(a in 11..100) {
@@ -25,7 +25,7 @@ fun denominatorValue(): Int {
     return productB/gcd(productA, productB)
 }
 
-fun rdQuotient(a: Int, b: Int): Double {
+private fun rdQuotient(a: Int, b: Int): Double {
     return when {
         a > b -> 0.0
         a == b -> 0.0

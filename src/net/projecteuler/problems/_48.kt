@@ -10,7 +10,8 @@ fun main(args: Array<String>) {
     println(largeSeries())
 }
 
-fun largeSeries(): String {
+private fun largeSeries(): String {
     var s = BigInteger.valueOf(10405071317)
-    return (11..1000).forEach { s += BigInteger.valueOf(it.toLong()).pow(it) }.toString().takeLast(10)
+    (11..1000).forEach { s += BigInteger.valueOf(it.toLong()).pow(it) }
+    return s.toString().takeLast(10)
 }

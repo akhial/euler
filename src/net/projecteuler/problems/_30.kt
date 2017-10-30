@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     println(sum)
 }
 
-fun Int.isSumExpressible(exponent: Int): Boolean {
+private fun Int.isSumExpressible(exponent: Int): Boolean {
     val sum = (1..this.length()).sumBy { Math.pow(this[it - 1].toDouble(), exponent.toDouble()).toInt() }
     return this == sum
 }

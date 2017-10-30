@@ -1,8 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPandigital
-import net.projecteuler.api.reverse
-import net.projecteuler.api.setDigit
+import net.projecteuler.api.*
 import org.junit.Assert
 import org.junit.Test
 
@@ -26,5 +24,12 @@ class IntegerTest {
     fun reverse() {
         Assert.assertEquals(54321, 12345.reverse())
         Assert.assertEquals(456, 654000.reverse())
+    }
+
+    @Test
+    fun digits() {
+        Assert.assertArrayEquals(intArrayOf(1, 2, 3, 0, 4), 12304.digits())
+        Assert.assertEquals(true, 12345.hasUniqueDigits())
+        Assert.assertEquals(false, 512345.hasUniqueDigits())
     }
 }

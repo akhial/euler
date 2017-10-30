@@ -13,9 +13,9 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
     companion object {
         val ZERO = Factors(arrayListOf())
         private var max = 1000
-        private var primes = genPrimes(max)
+        private var primes = getPrimes(max)
 
-        private fun genPrimes(len: Int, prev: ArrayList<Int> = arrayListOf(2)): ArrayList<Int> {
+        fun getPrimes(len: Int, prev: ArrayList<Int> = arrayListOf(2)): ArrayList<Int> {
             var q = (prev.last() - 1)/2
             for(i in 1..len) {
                 do q++ while(!(2*q + 1).isPrime())
@@ -31,7 +31,7 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
             var r = n
             while(n > primes.last()) {
                 max += max/2
-                primes = genPrimes(max, primes)
+                primes = getPrimes(max, primes)
             }
             var i = 0
             while(r != 1) {

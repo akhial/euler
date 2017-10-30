@@ -12,3 +12,5 @@ Please try to solve the problems **on your own** before **not** looking at the s
 ― Leonhard Euler
 
 >"Project Euler exists to encourage, challenge, and develop the skills and enjoyment of anyone with an interest in the fascinating world of mathematics."
+
+Problems solved: **#1 to #50**, currently solving: **#51**

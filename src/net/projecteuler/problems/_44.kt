@@ -10,9 +10,7 @@ package net.projecteuler.problems
 private val max = 2400
 private val p = Array(max, { (0.5*(it + 1)*(3*(it + 1) - 1)).toInt() })
 
-fun main(args: Array<String>) {
-    println(pentagonal())
-}
+fun main(args: Array<String>) = println(pentagonal())
 
 private fun pentagonal(): Int {
     var r = 0

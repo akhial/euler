@@ -11,9 +11,7 @@ import net.projecteuler.api.isPrime
 
 private val max = 3000
 
-fun main(args: Array<String>) {
-    println(goldbach())
-}
+fun main(args: Array<String>) = println(goldbach())
 
 private fun goldbach(): Int {
     val composites = arrayListOf<Int>()

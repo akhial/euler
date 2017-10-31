@@ -12,9 +12,7 @@ import net.projecteuler.api.shr
  * @see [Primes.nthPrime], [Primes.isPrime].
  */
 
-fun main(args: Array<String>) {
-    println(circularPrimeCount())
-}
+fun main(args: Array<String>) = println(circularPrimeCount())
 
 private fun circularPrimeCount(): Int {
     var count = 0

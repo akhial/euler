@@ -13,11 +13,9 @@ import net.projecteuler.api.isPrime
 private val e = 600
 private val p = Factors.getPrimes(e)
 
-fun main(args: Array<String>) {
-    println(largestPrime())
-}
+fun main(args: Array<String>) = println(consecutivePrimeSum())
 
-private fun largestPrime(): Int {
+private fun consecutivePrimeSum(): Int {
     var max = 0
     var r = 0
     for(i in 0 until e) {

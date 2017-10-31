@@ -9,11 +9,9 @@ import net.projecteuler.api.*
  * Stop at the first progression found.
  */
 
-fun main(args: Array<String>) {
-    println(arithmeticSequence())
-}
+fun main(args: Array<String>) = println(primePermutations())
 
-private fun arithmeticSequence(): String {
+private fun primePermutations(): String {
     for(q in 5000 downTo 500) {
         val p = 2*q + 1
         for(i in 2..3330) {

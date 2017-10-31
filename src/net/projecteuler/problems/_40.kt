@@ -7,9 +7,7 @@ package net.projecteuler.problems
  * After that simply access indices in the string and multiply them.
  */
 
-fun main(args: Array<String>) {
-    println(champernowne())
-}
+fun main(args: Array<String>) = println(champernowne())
 
 private fun champernowne(): Int {
     val sb = StringBuilder()

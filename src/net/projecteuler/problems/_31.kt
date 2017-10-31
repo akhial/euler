@@ -19,9 +19,7 @@ package net.projecteuler.problems
 val coins = intArrayOf(1, 2, 5, 10, 20, 50, 100, 200)
 val amount = 200
 
-fun main(args: Array<String>) {
-    println(combinationsOf())
-}
+fun main(args: Array<String>) = println(combinationsOf())
 
 private fun combinationsOf(addend: Int = coins.size - 1, current: Int = 0): Int {
     if(current == amount) return 1

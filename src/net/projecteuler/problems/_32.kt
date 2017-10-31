@@ -17,9 +17,7 @@ import net.projecteuler.api.*
 
 private val digits = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-fun main(args: Array<String>) {
-    println(pandigitalProducts())
-}
+fun main(args: Array<String>) = println(pandigitalProducts())
 
 private fun pandigitalProducts(): Int {
     val products = HashSet<Int>()

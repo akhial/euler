@@ -7,9 +7,7 @@ import net.projecteuler.api.*
  * Return the first one found.
  */
 
-fun main(args: Array<String>) {
-    println(permutedMultiples())
-}
+fun main(args: Array<String>) = println(permutedMultiples())
 
 private fun permutedMultiples(): Int {
     for(n in 125874..1000000) {

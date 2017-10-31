@@ -19,9 +19,7 @@ package net.projecteuler.problems
 
 val spiralSize = 1001
 
-fun main(args: Array<String>) {
-    println(spiralSum(spiralSize))
-}
+fun main(args: Array<String>) = println(spiralSum(spiralSize))
 
 private fun spiralSum(size: Int): Int {
     var sum = 1

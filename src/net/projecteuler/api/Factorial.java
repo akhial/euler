@@ -25,7 +25,7 @@ public class Factorial {
             return BigInteger.ONE;
         BigInteger result = BigInteger.ONE;
         for(int i = 1; i < n + 1; i++) {
-            result = result.multiply(new BigInteger(Integer.toString(i)));
+            result = result.multiply(BigInteger.valueOf((long) i));
         }
         return result;
     }

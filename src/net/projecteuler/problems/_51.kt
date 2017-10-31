@@ -25,11 +25,9 @@ import net.projecteuler.api.*
 private val e = 12000
 private val p = Factors.getPrimes(e)
 
-fun main(args: Array<String>) {
-    println(replacementPrimes())
-}
+fun main(args: Array<String>) = println(primeDigitReplacements())
 
-private fun replacementPrimes(): Int {
+private fun primeDigitReplacements(): Int {
     for(c in p) {
         val len = c.length()
         val l = Math.pow(2.0, len.toDouble()).toInt() - 1

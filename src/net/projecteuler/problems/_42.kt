@@ -13,10 +13,10 @@ private val triangles = Array(30, { (0.5*it*(it + 1)).toInt() })
 
 fun main(args: Array<String>) = println(triangleWords())
 
-private fun triangleWords(): Int = Files.lines(Paths.get("res/words.txt"))
+private fun triangleWords() = Files.lines(Paths.get("res/words.txt"))
         .map { it.replace("\"", "") }
         .map { it.replace(",", " ") }
         .flatMap { Pattern.compile("\\s+").splitAsStream(it) }
         .filter({ it.isTriangular() }).count().toInt()
 
-private fun String.isTriangular(): Boolean = triangles.contains(sumBy { it.toInt() - 64 })
+private fun String.isTriangular() = triangles.contains(sumBy { it.toInt() - 64 })

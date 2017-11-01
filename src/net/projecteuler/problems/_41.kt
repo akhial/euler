@@ -8,5 +8,4 @@ import net.projecteuler.api.*
 
 fun main(args: Array<String>) = println(pandigitalPrime())
 
-private fun pandigitalPrime(): Int =
-        (1..9).map { n -> (1..n).permutations().filter { it.isPrime() }.max() }.map { it ?: 0 }.max()!!
+private fun pandigitalPrime() = (1..9).map { n -> (1..n).permutations().filter { it.isPrime() }.max() }.map { it ?: 0 }.max()!!

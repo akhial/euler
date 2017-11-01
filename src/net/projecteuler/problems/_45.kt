@@ -12,4 +12,4 @@ private val h = Array(max, { (it + 1)*(2*(it + 1) - 1).toLong() })
 
 fun main(args: Array<String>) =  println(t[tph()])
 
-private fun tph(): Int = (285 until max).firstOrNull { h.contains(t[it]) && p.contains(t[it]) } ?: 0
+private fun tph() = (285 until max).firstOrNull { h.contains(t[it]) && p.contains(t[it]) } ?: 0

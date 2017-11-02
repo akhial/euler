@@ -43,22 +43,6 @@ private data class Card(val n: Int, val suit: Char) {
     }, card[1])
 }
 
-private fun Array<Card>.contains(vararg n: Int) = n.any { i -> any { it.n == i } }
-private fun Array<Card>.isNoaK(c: Int) = (2..14).firstOrNull { n -> count { it.n == n } == c } ?: 0
-private fun Array<Card>.isSameSuit() = none { it.suit != this[0].suit }
-private fun Array<Card>.toDodeca() = sortedBy { it.n }.mapIndexed { i, card -> (card.n - 2)*Math.pow(13.0, i.toDouble()) }.sum().toInt()
-
-private fun Array<Card>.isTwoPairs(): Int {
-    val pairs = (2..14).filter { n -> count { it.n == n } == 2 }
-    return if(pairs.count() == 2) pairs.last() else 0
-}
-
-private fun Array<Card>.isAscending(): Boolean {
-    val c = sortedBy { it.n }
-    val f = c.first()
-    return c.filterIndexed { i, j -> j.n != f.n + i }.none()
-}
-
 private fun Array<Card>.value(): Int {
     val ss = isSameSuit()
     val iv = isNoaK(4)
@@ -78,4 +62,20 @@ private fun Array<Card>.value(): Int {
         ii != 0 -> 200 + 10*ii
         else -> m
     }
+}
+
+private fun Array<Card>.contains(vararg n: Int) = n.any { i -> any { it.n == i } }
+private fun Array<Card>.isNoaK(c: Int) = (2..14).firstOrNull { n -> count { it.n == n } == c } ?: 0
+private fun Array<Card>.isSameSuit() = none { it.suit != this[0].suit }
+private fun Array<Card>.toDodeca() = sortedBy { it.n }.mapIndexed { i, card -> (card.n - 2)*Math.pow(13.0, i.toDouble()) }.sum().toInt()
+
+private fun Array<Card>.isTwoPairs(): Int {
+    val pairs = (2..14).filter { n -> count { it.n == n } == 2 }
+    return if(pairs.count() == 2) pairs.last() else 0
+}
+
+private fun Array<Card>.isAscending(): Boolean {
+    val c = sortedBy { it.n }
+    val f = c.first()
+    return c.filterIndexed { i, j -> j.n != f.n + i }.none()
 }

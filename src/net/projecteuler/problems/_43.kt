@@ -22,7 +22,7 @@ private fun divisiblePandigitals(): Long {
         val l = c.length()
         for(n in 1 until 8) {
             var s = 0
-            for(j in 0..2) s = s.setDigit(j, c[n + j, l], 3)
+            for(j in 0..2) s = s.setDigit(j, c[n + j, l], 3).toInt()
             r = r && s%primes[n - 1] == 0
             if(!r) break
         }

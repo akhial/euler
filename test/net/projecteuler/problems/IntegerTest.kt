@@ -5,6 +5,7 @@ import org.junit.Assert
 import org.junit.Test
 
 class IntegerTest {
+
     @Test
     fun isPandigital() {
         Assert.assertEquals(false, 123455.isPandigital(6))

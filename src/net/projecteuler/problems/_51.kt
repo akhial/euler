@@ -37,7 +37,7 @@ private fun primeDigitReplacements(): Int {
             for(d in 0..9) {
                 var s = c
                 val mask = n.toString(2).padStart(len, '0')
-                for((i, b) in mask.withIndex()) if(b == '1') s = s.setDigit(i, d)
+                for((i, b) in mask.withIndex()) if(b == '1') s = s.setDigit(i, d).toInt()
                 if(s.isPrime() && if(d == 0) s.length() == len else true) {
                     if(r == 0) r = s
                     count++

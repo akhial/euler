@@ -8,9 +8,9 @@ class _30_Test {
 
     @Test
     fun getDigit() {
-        Assert.assertEquals(1, 1232145.getDigit(0))
-        Assert.assertEquals(5, 1232145.getDigit(10))
-        Assert.assertEquals(2, 1232145.getDigit(3))
+        Assert.assertEquals(1, 1232145[0])
+        Assert.assertEquals(5, 1232145[10])
+        Assert.assertEquals(2, 1232145[3])
     }
 
     @Test

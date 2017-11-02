@@ -51,11 +51,23 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Calculates the value of the factors in [factors].
      */
-    fun value(): Int = factors.map { Math.pow(it.first.toDouble(), it.second.toDouble()).toInt() }
-            .reduce({ t, x -> t*x })
+    fun value() = factors.map { Math.pow(it.first.toDouble(), it.second.toDouble()).toInt() }.reduce({ t, x -> t*x })
 
     /**
      * Returns the number of factors.
      */
-    fun count(): Int = factors.count()
+    fun count() = factors.count()
+
+    override fun equals(other: Any?): Boolean {
+        if(this === other) return true
+        if(javaClass != other?.javaClass) return false
+
+        other as Factors
+
+        if(!factors.containsAll(other.factors)) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int = factors.hashCode()
 }

@@ -14,7 +14,7 @@ import net.projecteuler.api.isPrime
  *     for(a in primes)
  *         for(b in primes)
  *             ...
- *             for(e in primes) { /*fill an array with the 20 possible concatenations and test each one*/ }
+ *             for(e in primes) { fill an array with the 20 possible concatenations and test each one }
  *
  * For n = 100 this ran in about 20s, so to finish running for the 1000 primes required it would take 10000 times
  * longer... about 56 hours.
@@ -25,26 +25,26 @@ import net.projecteuler.api.isPrime
  *     for(a in primes)
  *         for(b in primes)
  *             ...
- *             for(e in primes) { /*While the current concatenated potential prime is prime..
- *                 find and test the next one*/ }
+ *             for(e in primes) { While the current concatenated potential prime is prime..
+ *                 find and test the next one }
  *
  * Then I changed my loops to only check for quintuplets of ascending primes..
  *
  *     for(i in 1..max-4)
  *         for(j in i..max-3)
  *             ...
- *             for(m in l..max) { /*Same thing*/ }
+ *             for(m in l..max) { Same thing }
  *
  * All of these attempts still didn't allow reasonable run times, the insight that allowed me to solve this problem was
  * figuring out that most of the time I get to the last e loop with primes that don't even work for only a and b.
  * The solution was testing the combinations as soon as I get into each loop, and skipping the primes that don't work.
  *
  *     for(j in 1..max-3) {
- *         /*Test a.b and b.a
- *         If one isn't prime skip current b*/
+ *         Test a.b and b.a
+ *         If one isn't prime skip current b
  *         for(k in i..max-2) {
- *             /*Test c.a c.b a.c b.c
- *             If one isn't prime skip current c*/
+ *             Test c.a c.b a.c b.c
+ *             If one isn't prime skip current c
  *             ...
  *
  *         }

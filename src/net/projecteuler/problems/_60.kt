@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.Factors
+import net.projecteuler.api.add
 import net.projecteuler.api.isPrime
 
 /**
@@ -50,8 +51,10 @@ import net.projecteuler.api.isPrime
  *         }
  *     }
  *
- * Which gave the final result below, it currently runs in about a second on my machine. While I could have found
- * a simpler solution, sticking with my first attempt paid off.
+ * I also used memoization to prevent rechecking for primes I'd already checked by using a [HashMap] mapping each prime
+ * value to the boolean result of [isPrime].
+ * All of which gave the final result below, it currently runs in about a second on my machine. While I could have
+ * found a simpler solution, sticking with my first attempt paid off.
  */
 
 private val max = 1050
@@ -80,8 +83,8 @@ private fun primePairSets(): Int {
 
             while(f && n < 2) {
                 val v = when(n) {
-                    0 -> a concat b
-                    1 -> b concat a
+                    0 -> a add b
+                    1 -> b add a
                     else -> 0
                 }
                 f = isPrime(v)
@@ -95,10 +98,10 @@ private fun primePairSets(): Int {
 
                 while(f && n < 4) {
                     val v = when(n) {
-                        0 -> a concat c
-                        1 -> b concat c
-                        2 -> c concat a
-                        3 -> c concat b
+                        0 -> a add c
+                        1 -> b add c
+                        2 -> c add a
+                        3 -> c add b
                         else -> 0
                     }
                     f = isPrime(v)
@@ -112,12 +115,12 @@ private fun primePairSets(): Int {
 
                     while(f && n < 6) {
                         val v = when(n) {
-                            0 -> a concat d
-                            1 -> b concat d
-                            2 -> c concat d
-                            3 -> d concat a
-                            4 -> d concat b
-                            5 -> d concat c
+                            0 -> a add d
+                            1 -> b add d
+                            2 -> c add d
+                            3 -> d add a
+                            4 -> d add b
+                            5 -> d add c
                             else -> 0
                         }
                         f = isPrime(v)
@@ -131,14 +134,14 @@ private fun primePairSets(): Int {
 
                         while(f && n < 8) {
                             val v = when(n) {
-                                0 -> a concat e
-                                1 -> b concat e
-                                2 -> c concat e
-                                3 -> d concat e
-                                4 -> e concat a
-                                5 -> e concat b
-                                6 -> e concat c
-                                7 -> e concat d
+                                0 -> a add e
+                                1 -> b add e
+                                2 -> c add e
+                                3 -> d add e
+                                4 -> e add a
+                                5 -> e add b
+                                6 -> e add c
+                                7 -> e add d
                                 else -> 0
                             }
                             f = isPrime(v)
@@ -152,5 +155,3 @@ private fun primePairSets(): Int {
     }
     return 0
 }
-
-private infix fun Int.concat(other: Int) = (toString() + other.toString()).toLong()

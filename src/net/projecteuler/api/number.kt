@@ -74,6 +74,11 @@ fun <T : Number> T.reverse(): Long {
 fun <T : Number> T.isPrime() = Primes.isPrime(toLong())
 
 /**
+ * Concatenates two ints into a long.
+ */
+infix fun Int.add(o: Int) = (toString() + o.toString()).toLong()
+
+/**
  * Returns an [IntArray] containing the digits of the given number.
  */
 fun Int.digits(len: Int = length()) = Array(len, { this[it, len] }).toIntArray()

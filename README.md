@@ -13,4 +13,4 @@ Please try to solve the problems **on your own** before **not** looking at the s
 
 >"Project Euler exists to encourage, challenge, and develop the skills and enjoyment of anyone with an interest in the fascinating world of mathematics."
 
-Problems solved: **#1 to #60**, currently solving: **#61**
+Problems solved: **#1 to #61**, currently solving: **#62**

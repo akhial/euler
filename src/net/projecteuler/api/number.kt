@@ -81,7 +81,9 @@ infix fun Int.add(o: Int) = (toString() + o.toString()).toLong()
 /**
  * Returns an [IntArray] containing the digits of the given number.
  */
-fun Int.digits(len: Int = length()) = Array(len, { this[it, len] }).toIntArray()
+fun Int.digits(len: Int = length()) = IntArray(len, { this[it, len] })
+
+fun Long.digits(len: Int = length()) = LongArray(len, { this[it, len].toLong() })
 
 /**
  * Returns true if the given number has unique digits, false otherwise.
@@ -162,7 +164,10 @@ fun LongArray.permutations(prefix: Long = 0, exp: Int = size - 1): LongArray {
     var s = longArrayOf()
     for(i in 0..exp) {
         val adv = prefix + Math.pow(10.0, exp.toDouble())*this[i]
-        s = s.plus(filter { it != this[i] }.toLongArray().permutations(adv.toLong(), exp - 1))
+        var c = count { it == this[i] }
+        var f = filter { it != this[i] }
+        while(c-- > 1) f = f.plus(this[i])
+        s = s.plus(f.toLongArray().permutations(adv.toLong(), exp - 1))
     }
     return s
 }

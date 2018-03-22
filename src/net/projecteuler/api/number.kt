@@ -74,6 +74,20 @@ fun <T : Number> T.reverse(): Long {
 fun <T : Number> T.isPrime() = Primes.isPrime(toLong())
 
 /**
+ * Returns true if the number is a permutation of the other number. (Best synopsis ever btw)
+ */
+fun <T : Number> T.isPermutationOf(o: T): Boolean {
+    val a = toLong()
+    val b = o.toLong()
+    val len = a.length()
+    if(len != b.length()) return false
+    val digits = Array(10, {0})
+    a.digits().map { it.toInt() }.forEach { digits[it]++ }
+    b.digits().map { it.toInt() }.forEach { digits[it]-- }
+    return digits.all { it == 0 }
+}
+
+/**
  * Concatenates two ints into a long.
  */
 infix fun Int.add(o: Int) = (toString() + o.toString()).toLong()

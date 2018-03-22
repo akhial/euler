@@ -33,4 +33,11 @@ class IntegerTest {
         Assert.assertEquals(true, 12345.hasUniqueDigits())
         Assert.assertEquals(false, 512345.hasUniqueDigits())
     }
+
+    @Test
+    fun isPermutationOf() {
+        Assert.assertEquals(true, 41063625.isPermutationOf(66430125))
+        Assert.assertEquals(false, 123450.isPermutationOf(54321))
+        Assert.assertEquals(true, 10010000000001.isPermutationOf(10000000000011))
+    }
 }

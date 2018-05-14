@@ -5,7 +5,7 @@ import kotlin.math.*
 /**
  * The tricky part was translating paper operations to an actual algorithm all while being wary of floating point
  * precision problems.
- * My first approach using doubles only worked for certain n(which is to be expected) the solution was converting the
+ * My first approach using doubles only worked for certain n (precision problems) the solution was converting the
  * algorithm to use only integer values.
  *
  * This particular implementation is from Daniel Fischer's answer on SO here:

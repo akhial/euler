@@ -14,14 +14,14 @@ import kotlin.math.*
 
 fun main(args: Array<String>) = println(oddPeriodSquareRoots())
 
-private fun oddPeriodSquareRoots(): Int = (2..10000).filter { fractionCycle(it)%2 == 0 }.count()
+private fun oddPeriodSquareRoots(): Int = (2..10000).filter { cfSqrt(it).size%2 == 0 }.count()
 
-private fun fractionCycle(n: Int): Int {
+fun cfSqrt(n: Int): ArrayList<Int> {
     val r = floor(sqrt(n.toDouble())).toInt()
     val f = arrayListOf<Int>()
     f.add(r)
 
-    if(r*r == n) return 1
+    if(r*r == n) return f
 
     var a = r
     var p = 0
@@ -34,5 +34,5 @@ private fun fractionCycle(n: Int): Int {
         f.add(a)
     } while(q != 1)
 
-    return f.size
+    return f
 }

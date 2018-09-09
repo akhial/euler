@@ -9,6 +9,8 @@ import java.math.BigInteger
  * All we have to do to find this solution is iterate over sqrt(d)'s convergents until we find a pair that satisfies
  * the equation, all while keeping track of the maximal X value. Use [BigInteger].
  *
+ * Also see _64.kt and _65.kt for cfSqrt() and cfCalc() respectively.
+ *
  * Further reading: https://en.wikipedia.org/wiki/Pell's_equation
  */
 

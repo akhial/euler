@@ -25,4 +25,16 @@ public class Fibonacci {
 
         return result;
     }
+
+    public BigInteger nthBigFibonacci(int n) {
+        BigInteger result = BigInteger.ZERO;
+        Fibonacci f = new Fibonacci();
+
+        if(n == 1 || n == 2) return BigInteger.ONE;
+
+        for(int i = 0; i < n - 2; i++) {
+            result = f.nextBigFibonacci();
+        }
+        return result;
+    }
 }

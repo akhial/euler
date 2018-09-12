@@ -6,7 +6,7 @@ import net.projecteuler.api.length
 import net.projecteuler.api.shr
 
 /**
- * Brute-force, to check for circularity I shift the prime continuously to the right length times.
+ * Brute-force, to check for circularity I shift the prime continuously to the right "length" times.
  * Checking if its prime each time.
  *
  * @see [Primes.nthPrime], [Primes.isPrime].

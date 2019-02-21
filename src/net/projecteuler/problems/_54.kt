@@ -14,14 +14,14 @@ import java.nio.file.*
  * I then use this number to determine the highest card to break ties, there are better ways to do this.
  */
 
-fun main(args: Array<String>) = println(pokerHands())
+fun main() = println(pokerHands())
 
 private fun pokerHands(): Int {
     var count = 0
     Files.lines(Paths.get("res/poker.txt")).forEach {
         val cards = it.split(" ")
-        val i = cards.take(5).map { Card(it) }.toTypedArray()
-        val ii = cards.takeLast(5).map { Card(it) }.toTypedArray()
+        val i = cards.take(5).map { c -> Card(c) }.toTypedArray()
+        val ii = cards.takeLast(5).map { c -> Card(c) }.toTypedArray()
 
         val w = i.value() - ii.value()
         val r = if(w != 0) w else i.toDodeca() - ii.toDodeca()

@@ -9,9 +9,9 @@ import java.math.BigInteger
  * Uses the recursive formula: nextFraction = (lastDenominator, currentCoefficient*lastNominator + lastDenominator)
  */
 
-private val cf = Array(100, { if(it == 0) 2 else if(it%3 == 2) 2*(it + 1)/3 else 1 })
+private val cf = Array(100) { if(it == 0) 2 else if(it%3 == 2) 2*(it + 1)/3 else 1 }
 
-fun main(args: Array<String>) = println(convergentsOfE())
+fun main() = println(convergentsOfE())
 
 private fun convergentsOfE(): Int = cfCalc(ArrayList(cf.asList())).second.toString().map { Character.getNumericValue(it) }.sum()
 

@@ -6,13 +6,13 @@ package net.projecteuler.api
 class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Allows getting the prime factors of an int, the initial prime array contains 1000 primes.
-     * When the argument is larger than the largest prime we increase the prime count by a factor of 1,5.
+     * When the argument is larger than 2 times the largest prime we increase the prime count by a factor of 1,5.
      *
      * Using an eratosthenes sieve will yield better performance.
      */
     companion object {
         val ZERO = Factors(arrayListOf())
-        private var max = 1000
+        var max = 10000
         private var primes = getPrimes(max)
 
         fun getPrimes(len: Int, prev: ArrayList<Int> = arrayListOf(2)): ArrayList<Int> {
@@ -29,9 +29,9 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
 
             val f = arrayListOf<Pair<Int, Int>>()
             var r = n
-            while(n > primes.last()) {
+            while(n > 2*primes.last()) {
+                primes = getPrimes(max/2, primes)
                 max += max/2
-                primes = getPrimes(max, primes)
             }
             var i = 0
             while(r != 1) {
@@ -51,7 +51,7 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Calculates the value of the factors in [factors].
      */
-    fun value() = factors.map { Math.pow(it.first.toDouble(), it.second.toDouble()).toInt() }.reduce({ t, x -> t*x })
+    fun value() = factors.map { Math.pow(it.first.toDouble(), it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
 
     /**
      * Returns the number of factors.
@@ -70,4 +70,5 @@ class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
     }
 
     override fun hashCode(): Int = factors.hashCode()
+    override fun toString(): String = factors.toString()
 }

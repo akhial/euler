@@ -9,7 +9,7 @@ import net.projecteuler.api.Factors
  * @see [Factors].
  */
 
-fun main(args: Array<String>) = println(distinctPrimeFactors())
+fun main() = println(distinctPrimeFactors())
 
 private fun distinctPrimeFactors(): Int {
     val factors = arrayListOf<Factors>()

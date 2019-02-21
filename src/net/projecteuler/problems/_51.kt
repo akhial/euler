@@ -22,10 +22,10 @@ import net.projecteuler.api.*
  * When the count >7 (=8) I return that prime.
  */
 
-private val e = 12000
+private const val e = 12000
 private val p = Factors.getPrimes(e)
 
-fun main(args: Array<String>) = println(primeDigitReplacements())
+fun main() = println(primeDigitReplacements())
 
 private fun primeDigitReplacements(): Int {
     for(c in p) {

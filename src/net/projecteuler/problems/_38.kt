@@ -8,7 +8,7 @@ package net.projecteuler.problems
  * the new max.
  */
 
-fun main(args: Array<String>) = println(pandigitalMultiple())
+fun main() = println(pandigitalMultiple())
 
 private fun pandigitalMultiple(): Int {
     var max = 0

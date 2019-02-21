@@ -20,9 +20,9 @@ import java.math.BigInteger
  */
 
 private val zero = Pair(BigInteger.ZERO, BigInteger.ZERO)
-private val pairs = Array(1000, { zero })
+private val pairs = Array(1000) { zero }
 
-fun main(args: Array<String>) = println(squareRootConvergents())
+fun main() = println(squareRootConvergents())
 
 private fun squareRootConvergents(): Int = (1..1000)
         .map { sqrt(it) }

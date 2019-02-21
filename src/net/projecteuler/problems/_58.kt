@@ -8,7 +8,7 @@ import net.projecteuler.api.isPrime
  * When the ratio = primes / 2n-1 < 10 we stop.
  */
 
-fun main(args: Array<String>) = println(spiralPrimes())
+fun main() = println(spiralPrimes())
 
 private fun spiralPrimes(): Int {
     var ratio = 100

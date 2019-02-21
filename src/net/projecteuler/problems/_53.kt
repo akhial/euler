@@ -7,7 +7,7 @@ import java.math.BigInteger
  * Use [BigInteger].
  */
 
-fun main(args: Array<String>) = println(combinatoricSelections())
+fun main() = println(combinatoricSelections())
 
 private fun combinatoricSelections() = (1..100).sumBy {
     n -> (0 until 100).count { ncr(n, it) > BigInteger.valueOf(1000000) } }

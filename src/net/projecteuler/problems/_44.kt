@@ -7,10 +7,10 @@ package net.projecteuler.problems
  * Just iterate over the pentagonal numbers while checking the sum and difference for pentagonal-ity.
  */
 
-private val max = 2400
-private val p = Array(max, { (0.5*(it + 1)*(3*(it + 1) - 1)).toInt() })
+private const val max = 2400
+private val p = Array(max) { (0.5*(it + 1)*(3*(it + 1) - 1)).toInt() }
 
-fun main(args: Array<String>) = println(pentagonal())
+fun main() = println(pentagonal())
 
 private fun pentagonal(): Int {
     var r = 0

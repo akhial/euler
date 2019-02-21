@@ -9,7 +9,7 @@ import net.projecteuler.api.*
  * Stop at the first progression found.
  */
 
-fun main(args: Array<String>) = println(primePermutations())
+fun main() = println(primePermutations())
 
 private fun primePermutations(): String {
     for(q in 5000 downTo 500) {

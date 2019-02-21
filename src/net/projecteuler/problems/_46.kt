@@ -9,9 +9,9 @@ import net.projecteuler.api.isPrime
  * We return the first composite which does not fulfill that condition.
  */
 
-private val max = 3000
+private const val max = 3000
 
-fun main(args: Array<String>) = println(goldbach())
+fun main() = println(goldbach())
 
 private fun goldbach(): Int {
     val composites = arrayListOf<Int>()

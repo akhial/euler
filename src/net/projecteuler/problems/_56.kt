@@ -6,7 +6,7 @@ import java.math.BigInteger
  * Use [BigInteger].
  */
 
-fun main(args: Array<String>) = println(powerfulDigitSum())
+fun main() = println(powerfulDigitSum())
 
 private fun powerfulDigitSum(): Int {
     var max = 0

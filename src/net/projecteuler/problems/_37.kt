@@ -9,7 +9,7 @@ import java.lang.Math.pow
  * The rest is just iteration and checking.
  */
 
-fun main(args: Array<String>) = println(truncateCount())
+fun main() = println(truncateCount())
 
 private fun truncateCount(): Int {
     var count = 0

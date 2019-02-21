@@ -1,7 +1,9 @@
 package net.projecteuler.api;
 
 public class QuadraticExp {
-    private int a, b, c;
+    private final int a;
+    private final int b;
+    private final int c;
 
     public QuadraticExp(int a, int b, int c) {
         this.a = a;

@@ -13,7 +13,7 @@ import kotlin.streams.toList
 private const val numberOfRows = 100
 private val sums = MutableList(100) { index -> MutableList(index + 1) { 0 } }
 
-fun main(args: Array<String>) = println(maximumPathSum())
+fun main() = println(maximumPathSum())
 
 private fun maximumPathSum(): Int {
     val l = Files.lines(Paths.get("res/triangle.txt"))

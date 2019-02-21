@@ -6,7 +6,7 @@ import java.math.BigInteger
  * Use BigInteger and take the last 10 digits of the resulting string.
  */
 
-fun main(args: Array<String>) = println(selfPowers())
+fun main() = println(selfPowers())
 
 private fun selfPowers(): String {
     var s = BigInteger.valueOf(10405071317)

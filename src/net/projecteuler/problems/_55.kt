@@ -8,7 +8,7 @@ import net.projecteuler.api.reverse
  * Check if we stopped because we found a palindrome or because of iterations.. if its the latter inc count.
  */
 
-fun main(args: Array<String>) = println(lychrelNumbers())
+fun main() = println(lychrelNumbers())
 
 private fun lychrelNumbers(): Int {
     var c = 0

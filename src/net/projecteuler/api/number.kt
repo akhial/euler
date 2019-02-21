@@ -81,7 +81,7 @@ fun <T : Number> T.isPermutationOf(o: T): Boolean {
     val b = o.toLong()
     val len = a.length()
     if(len != b.length()) return false
-    val digits = Array(10, {0})
+    val digits = Array(10) {0}
     a.digits().map { it.toInt() }.forEach { digits[it]++ }
     b.digits().map { it.toInt() }.forEach { digits[it]-- }
     return digits.all { it == 0 }
@@ -95,9 +95,9 @@ infix fun Int.add(o: Int) = (toString() + o.toString()).toLong()
 /**
  * Returns an [IntArray] containing the digits of the given number.
  */
-fun Int.digits(len: Int = length()) = IntArray(len, { this[it, len] })
+fun Int.digits(len: Int = length()) = IntArray(len) { this[it, len] }
 
-fun Long.digits(len: Int = length()) = LongArray(len, { this[it, len].toLong() })
+fun Long.digits(len: Int = length()) = LongArray(len) { this[it, len].toLong() }
 
 /**
  * Returns true if the given number has unique digits, false otherwise.

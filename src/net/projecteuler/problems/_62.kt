@@ -11,10 +11,10 @@ import net.projecteuler.api.length
  * cubes and then checking if they were permutations. This finds the answer in about 30s on my i5-4300u.
  */
 
-private val max = 10000
-private val cubes = LongArray(max, { it*it*it.toLong() })
+private const val max = 10000
+private val cubes = LongArray(max) { it*it*it.toLong() }
 
-fun main(args: Array<String>) = println(cubicPermutations())
+fun main() = println(cubicPermutations())
 
 private fun cubicPermutations(): Long {
     for(c in cubes) {

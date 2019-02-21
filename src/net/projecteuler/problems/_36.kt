@@ -5,7 +5,7 @@ package net.projecteuler.problems
  * Checking for palindromes is done via standard library functions.
  */
 
-fun main(args: Array<String>) = println(palindromes())
+fun main() = println(palindromes())
 
 private fun palindromes() = (1..1000000).filter { it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic() }.sum()
 

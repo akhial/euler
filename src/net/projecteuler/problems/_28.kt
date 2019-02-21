@@ -17,9 +17,9 @@ package net.projecteuler.problems
  * Hence this solution.
  */
 
-val spiralSize = 1001
+const val spiralSize = 1001
 
-fun main(args: Array<String>) = println(spiralSum(spiralSize))
+fun main() = println(spiralSum(spiralSize))
 
 private fun spiralSum(size: Int): Int {
     var sum = 1

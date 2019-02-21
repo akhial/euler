@@ -8,7 +8,7 @@ package net.projecteuler.problems
  * When we find a new max we set it to the max and the result to p.
  */
 
-fun main(args: Array<String>) = println(rightTriangles())
+fun main() = println(rightTriangles())
 
 private fun rightTriangles(): Int {
     var max = 0

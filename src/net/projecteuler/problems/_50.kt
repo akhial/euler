@@ -10,10 +10,10 @@ import net.projecteuler.api.isPrime
  * We then return the maximal prime. The limit of 600 primes was found after execution (precisely 545 primes).
  */
 
-private val e = 600
+private const val e = 600
 private val p = Factors.getPrimes(e)
 
-fun main(args: Array<String>) = println(consecutivePrimeSum())
+fun main() = println(consecutivePrimeSum())
 
 private fun consecutivePrimeSum(): Int {
     var max = 0

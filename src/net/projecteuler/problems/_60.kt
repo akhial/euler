@@ -57,11 +57,11 @@ import net.projecteuler.api.isPrime
  * found a simpler solution, sticking with my first attempt paid off.
  */
 
-private val max = 1050
+private const val max = 1050
 private val primes = Factors.getPrimes(max)
 private val check = HashMap<Long, Boolean>()
 
-fun main(args: Array<String>) = println(primePairSets())
+fun main() = println(primePairSets())
 
 private fun primePairSets(): Int {
     val isPrime = { v: Long ->

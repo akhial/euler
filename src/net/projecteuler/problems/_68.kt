@@ -22,7 +22,7 @@ import net.projecteuler.api.permutations
  * update the max value.
  */
 
-fun main(args: Array<String>) = println(magic5GonRing())
+fun main() = println(magic5GonRing())
 
 private fun magic5GonRing(): Long {
     val m = 10000000000000000L
@@ -54,10 +54,7 @@ private fun magic5GonRing(): Long {
 
         if(b) {
             val uniqueID = v.getUniqueID()
-            if(uniqueID in max..m) {
-                println(v.contentToString())
-                max = uniqueID
-            }
+            if(uniqueID in max..m) max = uniqueID
         }
     }
     return max

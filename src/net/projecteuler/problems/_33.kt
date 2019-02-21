@@ -7,7 +7,7 @@ import net.projecteuler.api.*
  * if they do check the quotient of the two numbers and the quotient of the tzo numbers without the digits in common.
  */
 
-fun main(args: Array<String>) = println(denominatorValue())
+fun main() = println(denominatorValue())
 
 private fun denominatorValue(): Int {
     var productA = 1

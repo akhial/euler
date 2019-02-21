@@ -6,7 +6,7 @@ import net.projecteuler.api.*
  * Brute-force, the limit of 50000 was found through trial and error.
  */
 
-fun main(args: Array<String>) = println(factSum())
+fun main() = println(factSum())
 
 private fun factSum(): Int {
     var result = 0

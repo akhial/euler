@@ -3,7 +3,7 @@ package net.projecteuler.api
 /**
  * Represents the prime factors of an integer.
  */
-class Factors(private val factors: ArrayList<Pair<Int, Int>>) {
+class Factors(val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Allows getting the prime factors of an int, the initial prime array contains 1000 primes.
      * When the argument is larger than 2 times the largest prime we increase the prime count by a factor of 1,5.

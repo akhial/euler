@@ -6,6 +6,6 @@ public class _6 {
         for(int i = 1; i < 101; i++) {
             sum += i*i;
         }
-        System.out.println((int) Math.pow(100*101/2, 2) - sum);
+        System.out.println((int) Math.pow(5050, 2) - sum);
     }
 }

@@ -6,12 +6,9 @@ package net.projecteuler.api
 class Factors(val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Allows getting the prime factors of an int, the initial prime array contains 1000 primes.
-     * When the argument is larger than 2 times the largest prime we increase the prime count by a factor of 1,5.
-     *
-     * Using an eratosthenes sieve will yield better performance.
+     * When the argument is larger than the largest prime squared we increase the prime count by a factor of 2.
      */
     companion object {
-        val ZERO = Factors(arrayListOf())
         var max = 10000
         private var primes = getPrimes(max)
 
@@ -25,25 +22,36 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
         }
 
         fun of(n: Int): Factors {
-            if(n == 0) return ZERO
-
             val f = arrayListOf<Pair<Int, Int>>()
-            var r = n
-            while(n > 2*primes.last()) {
-                primes = getPrimes(max/2, primes)
-                max += max/2
+
+            if(n == 0) return Factors(f)
+            if(n.isPrime()) {
+                f.add(Pair(n, 1))
+                return Factors(f)
             }
+
+            while(n > primes.last()*primes.last()) {
+                primes = getPrimes(max, primes)
+                max *= 2
+            }
+
+            var r = n
             var i = 0
-            while(r != 1) {
+            var s = false
+            while(r != 1 && !s) {
                 val p = primes[i]
                 var c = 0
                 while(r%p == 0) {
                     r /= p
                     c++
                 }
-                if(c != 0) f.add(Pair(p, c))
+                if(c != 0) {
+                    f.add(Pair(p, c))
+                    if(r.isPrime()) s = true
+                }
                 i++
             }
+            if(s) f.add(Pair(r, 1))
             return Factors(f)
         }
     }
@@ -70,5 +78,6 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
     }
 
     override fun hashCode(): Int = factors.hashCode()
+
     override fun toString(): String = factors.toString()
 }

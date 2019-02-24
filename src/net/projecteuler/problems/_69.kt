@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.Factors
+import kotlin.math.roundToInt
 
 /**
  * This checks all even numbers under 1000000 for the maximum (all odd numbers have larger totients because they are
@@ -17,11 +18,11 @@ import net.projecteuler.api.Factors
 fun main() = println(totientMaximum())
 
 private fun totientMaximum(): Int {
-    val candidates = List(500000) { i -> i*2 }.drop(1) // remove 0
     var max = 0.0
     var maxC = 0
 
-    for(c in candidates) {
+    for(i in 1..500000) {
+        val c = 2*i
         val x = c.toDouble()/phi(c)
         if(x > max) {
             max = x
@@ -31,8 +32,8 @@ private fun totientMaximum(): Int {
     return maxC
 }
 
-private fun phi(n: Int): Int {
+fun phi(n: Int): Int {
     var r = 1.0
-    for(p in Factors.of(n).factors) r *= (1.0/p.first)*(p.first - 1)
-    return (n*r).toInt()
+    for(p in Factors.of(n).factors) r *= 1 - (1.0/p.first)
+    return (n*r).roundToInt()
 }

@@ -11,4 +11,4 @@ You can find the problems in the [Project Euler Archive](https://projecteuler.ne
 
 ![AdelK](https://projecteuler.net/profile/AdelK.png)
 
-Problems solved: **#1 to #72**, currently solving: **#73**
+Problems solved: **#1 to #73**, currently solving: **#74**

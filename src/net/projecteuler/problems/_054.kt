@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
 import java.nio.file.*
+import kotlin.math.pow
 
 /**
  * After representing cards by a class and implementing the functions that allow finding the type of hand, I gave
@@ -67,13 +68,11 @@ private fun Array<Card>.value(): Int {
 private fun Array<Card>.contains(vararg n: Int) = n.any { i -> any { it.n == i } }
 private fun Array<Card>.isNoaK(c: Int) = (2..14).firstOrNull { n -> count { it.n == n } == c } ?: 0
 private fun Array<Card>.isSameSuit() = none { it.suit != this[0].suit }
-private fun Array<Card>.toDodeca() = sortedBy { it.n }.mapIndexed { i, card -> (card.n - 2)*Math.pow(13.0, i.toDouble()) }.sum().toInt()
-
+private fun Array<Card>.toDodeca() = sortedBy { it.n }.mapIndexed { i, card -> (card.n - 2)*13.0.pow(i.toDouble()) }.sum().toInt()
 private fun Array<Card>.isTwoPairs(): Int {
     val pairs = (2..14).filter { n -> count { it.n == n } == 2 }
     return if(pairs.count() == 2) pairs.last() else 0
 }
-
 private fun Array<Card>.isAscending(): Boolean {
     val c = sortedBy { it.n }
     val f = c.first()

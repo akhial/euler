@@ -2,6 +2,7 @@ package net.projecteuler.problems
 
 import net.projecteuler.api.*
 import java.lang.Math.pow
+import kotlin.math.pow
 
 /**
  * To remove digits from the right divide by 10, to remove digits from the left you have to find the remainder mod
@@ -26,7 +27,7 @@ private fun truncateCount(): Int {
             }
             while(r > 0 && truncate) {
                 truncate = r.isPrime()
-                r %= pow(10.0, r.length().toDouble() - 1).toInt()
+                r %= 10.0.pow(r.length().toDouble() - 1).toInt()
             }
             if(truncate) {
                 sum += n

@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.*
+import kotlin.math.pow
 
 /**
  * To solve this problem I iterate over the first 'e' primes.. then I use this insight to find
@@ -30,7 +31,7 @@ fun main() = println(primeDigitReplacements())
 private fun primeDigitReplacements(): Int {
     for(c in p) {
         val len = c.length()
-        val l = Math.pow(2.0, len.toDouble()).toInt() - 1
+        val l = 2.0.pow(len.toDouble()).toInt() - 1
         var r = 0
         for(n in 1 until l) {
             var count = 0

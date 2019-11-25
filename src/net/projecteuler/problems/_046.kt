@@ -28,7 +28,7 @@ private fun goldbach(): Int {
         primes.add(n)
     }
     for(c in composites) {
-        val found = primes.any { Math.sqrt((c - it)/2.0)%1 == 0.0 }
+        val found = primes.any { kotlin.math.sqrt((c - it)/2.0)%1 == 0.0 }
         if(!found) return c
     }
     return 0

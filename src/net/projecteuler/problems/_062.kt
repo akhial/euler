@@ -2,6 +2,9 @@ package net.projecteuler.problems
 
 import net.projecteuler.api.isPermutationOf
 import net.projecteuler.api.length
+import kotlin.math.ceil
+import kotlin.math.floor
+import kotlin.math.pow
 
 /**
  * At first I tried getting all permutations for each cube then counting the numbers of those permutations that
@@ -19,8 +22,8 @@ fun main() = println(cubicPermutations())
 private fun cubicPermutations(): Long {
     for(c in cubes) {
         val len = c.length()
-        val drop = Math.floor(Math.cbrt(Math.pow(10.0, (len - 1).toDouble()))).toInt() - 1
-        val last = max - Math.ceil(Math.cbrt(Math.pow(10.0, len.toDouble()))).toInt() - 1
+        val drop = floor(Math.cbrt(10.0.pow((len - 1).toDouble()))).toInt() - 1
+        val last = max - ceil(Math.cbrt(10.0.pow(len.toDouble()))).toInt() - 1
         val absLast = if(last < 0) 0 else last
 
         val candidates = cubes.drop(drop).dropLast(absLast)

@@ -1,5 +1,7 @@
 package net.projecteuler.api
 
+import kotlin.math.pow
+
 /**
  * Represents the prime factors of an integer.
  */
@@ -59,7 +61,7 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
     /**
      * Calculates the value of the factors in [factors].
      */
-    fun value() = factors.map { Math.pow(it.first.toDouble(), it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
+    fun value() = factors.map { it.first.toDouble().pow(it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
 
     /**
      * Returns the number of factors.

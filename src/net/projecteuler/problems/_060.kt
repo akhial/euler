@@ -53,12 +53,12 @@ import net.projecteuler.api.isPrime
  *
  * I also used memoization to prevent rechecking for primes I'd already checked by using a [HashMap] mapping each prime
  * value to the boolean result of [isPrime].
- * All of which gave the final result below, it currently runs in about a second on my machine. While I could have
+ * All of which gave the final result below, it currently runs in less than a second on my machine. While I could have
  * found a simpler solution, sticking with my first attempt paid off.
  */
 
-private const val max = 1050
-private val primes = Factors.getPrimes(max)
+private val primes = Factors.getPrimes(10000)
+private val max = primes.size
 private val check = HashMap<Long, Boolean>()
 
 fun main() = println(primePairSets())
@@ -72,11 +72,11 @@ private fun primePairSets(): Int {
         }()
     }
 
-    for(i in 1 until max - 3) {
+    for(i in 1 until max - 4) {
         var f: Boolean
         var n: Int
         val a = primes[i]
-        for(j in i + 1 until max - 2) {
+        for(j in i + 1 until max - 3) {
             f = true
             n = 0
             val b = primes[j]
@@ -91,7 +91,7 @@ private fun primePairSets(): Int {
                 n++
             }
             if(!f) continue
-            for(k in j + 1 until max - 1) {
+            for(k in j + 1 until max - 2) {
                 f = true
                 n = 0
                 val c = primes[k]
@@ -108,7 +108,7 @@ private fun primePairSets(): Int {
                     n++
                 }
                 if(!f) continue
-                for(l in k + 1 until max) {
+                for(l in k + 1 until max - 1) {
                     f = true
                     n = 0
                     val d = primes[l]
@@ -127,7 +127,7 @@ private fun primePairSets(): Int {
                         n++
                     }
                     if(!f) continue
-                    for(m in j + 1 until max + 1) {
+                    for(m in j + 1 until max) {
                         f = true
                         n = 0
                         val e = primes[m]

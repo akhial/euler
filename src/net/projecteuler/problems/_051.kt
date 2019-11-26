@@ -4,7 +4,7 @@ import net.projecteuler.api.*
 import kotlin.math.pow
 
 /**
- * To solve this problem I iterate over the first 'e' primes.. then I use this insight to find
+ * To solve this problem I iterate over the first primes less than 'e'.. then I use this insight to find
  * the prime digit replacements:
  *
  * We can replace the following digits in a 3-digit prime..
@@ -23,7 +23,7 @@ import kotlin.math.pow
  * When the count >7 (=8) I return that prime.
  */
 
-private const val e = 12000
+private const val e = 125000
 private val p = Factors.getPrimes(e)
 
 fun main() = println(primeDigitReplacements())

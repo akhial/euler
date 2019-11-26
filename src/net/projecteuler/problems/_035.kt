@@ -3,7 +3,7 @@ package net.projecteuler.problems
 import net.projecteuler.api.Primes
 import net.projecteuler.api.isPrime
 import net.projecteuler.api.length
-import net.projecteuler.api.shr
+import net.projecteuler.api.dshr
 
 /**
  * Brute-force, to check for circularity I shift the prime continuously to the right "length" times.
@@ -22,7 +22,7 @@ private fun circularPrimeCount(): Int {
             var isCircular = true
             var j = 0
             while(isCircular && j < prime.length()) {
-                prime = prime.shr()
+                prime = prime.dshr()
                 isCircular = prime.isPrime()
                 j++
             }

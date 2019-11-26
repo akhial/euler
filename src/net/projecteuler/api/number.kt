@@ -7,7 +7,6 @@ import kotlin.math.*
  *
  * @param index the index.
  */
-
 operator fun <T : Number> T.get(index: Int, len: Int = length()): Int {
     val n = this.toLong()
     var exp = (len - index - 1).toDouble()
@@ -52,7 +51,7 @@ fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a%b)
  * One-liner that shifts all digits circularly to the right.
  * eg: 123456 -> 612345
  */
-fun Int.shr() = ((this%10)*10.0.pow(length().toDouble() - 1) + this/10).toInt()
+fun Int.dshr() = ((this%10)*10.0.pow(length().toDouble() - 1) + this/10).toInt()
 
 /**
  * Return the reversed representation of the given int.

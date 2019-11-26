@@ -6,8 +6,8 @@ import java.math.BigInteger
  * Use BigInteger, then store in a set to remove duplicates.
  */
 
-const val maxA = 100
-const val maxB = 100
+private const val maxA = 100
+private const val maxB = 100
 
 fun main() {
     val set = HashSet<BigInteger>()

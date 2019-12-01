@@ -25,13 +25,13 @@ private val pairs = Array(1000) { zero }
 fun main() = println(squareRootConvergents())
 
 private fun squareRootConvergents(): Int = (1..1000)
-        .map { sqrt(it) }
+        .map { rsqrt(it) }
         .map { Pair(it.first + it.second, it.first) }
         .count { it.first.toString().length > it.second.toString().length }
 
-private fun sqrt(i: Int): Pair<BigInteger, BigInteger> {
+private fun rsqrt(i: Int): Pair<BigInteger, BigInteger> {
     if(i == 1) return Pair(BigInteger.valueOf(2L), BigInteger.ONE)
-    val sqrt = sqrt(i - 1)
+    val sqrt = rsqrt(i - 1)
     val p = pairs[i - 1]
     return if(p != zero) p else {
         val r = Pair(sqrt.first.shiftLeft(1) + sqrt.second, sqrt.first)

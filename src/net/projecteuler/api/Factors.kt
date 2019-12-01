@@ -1,19 +1,18 @@
 package net.projecteuler.api
 
 import kotlin.math.pow
-import kotlin.math.sqrt
 
 /**
  * Represents the prime factors of an integer.
  */
 class Factors(val factors: ArrayList<Pair<Int, Int>>) {
-    /**
-     * Allows getting the prime factors of an integer.
-     */
+
     companion object {
         fun getPrimes(n: Int): ArrayList<Int> {
             return Eratosthenes.sieve(n)
         }
+
+        var primes = Eratosthenes.sieve(10000)
 
         fun of(n: Int): Factors {
             val f = arrayListOf<Pair<Int, Int>>()
@@ -24,7 +23,8 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
                 return Factors(f)
             }
 
-            val primes = Eratosthenes.sieve(sqrt(n.toDouble()).toInt() + 1)
+            if(n > primes.last()*primes.last())
+                primes = Eratosthenes.sieve(n)
 
             var r = n
             var i = 0

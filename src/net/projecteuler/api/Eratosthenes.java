@@ -1,9 +1,12 @@
 package net.projecteuler.api;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 /**
- * Courtesy of GeeksForGeeks, by Arnav Kr. Mandal.
+ * Inspired by code by Arnav Kr. Mandal from GeeksForGeeks.
+ * Prime count upper bounds from: https://en.wikipedia.org/wiki/Prime-counting_function
  */
 
 public class Eratosthenes {
@@ -18,14 +21,17 @@ public class Eratosthenes {
         primes[x/64] |= (1 << ((x >> 1) & 31));
     }
 
+    @NotNull
     public static ArrayList<Integer> sieve(int n) {
-        ArrayList<Integer> result = new ArrayList<>();
+        double f = (n <= 1000) ? 1.25507 : 1.137;
+        double l = f*n/Math.log(n);
+        ArrayList<Integer> result = new ArrayList<>((int) l);
 
         primes = new int[n/64 + 1];
 
         for(int i = 3; i*i <= n; i += 2) {
             if(isComposite(i) == 0)
-                for(int j = i*i, k = i << 1; j < n; j += k)
+                for(int j = i*i, k = i << 1; j <= n; j += k)
                     setComposite(j);
         }
 

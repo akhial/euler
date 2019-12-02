@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
-import java.nio.file.*
+import java.nio.file.Files
+import java.nio.file.Paths
 import kotlin.math.pow
 
 /**
@@ -19,7 +20,7 @@ fun main() = println(pokerHands())
 
 private fun pokerHands(): Int {
     var count = 0
-    Files.lines(Paths.get("res/poker.txt")).forEach {
+    Files.lines(Paths.get("res/p054_poker.txt")).forEach {
         val cards = it.split(" ")
         val i = cards.take(5).map { c -> Card(c) }.toTypedArray()
         val ii = cards.takeLast(5).map { c -> Card(c) }.toTypedArray()

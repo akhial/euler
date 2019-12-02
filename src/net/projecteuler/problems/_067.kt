@@ -16,7 +16,7 @@ private val sums = MutableList(100) { index -> MutableList(index + 1) { 0 } }
 fun main() = println(maximumPathSum())
 
 private fun maximumPathSum(): Int {
-    val l = Files.lines(Paths.get("res/triangle.txt"))
+    val l = Files.lines(Paths.get("res/p067_triangle.txt"))
     val t = l.toList().map { it.split(" ") }
 
     sum(t, 0, 0)

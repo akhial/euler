@@ -13,7 +13,7 @@ private val triangles = Array(30) { (0.5*it*(it + 1)).toInt() }
 
 fun main() = println(triangleWords())
 
-private fun triangleWords() = Files.lines(Paths.get("res/words.txt"))
+private fun triangleWords() = Files.lines(Paths.get("res/p042_words.txt"))
         .map { it.replace("\"", "") }
         .map { it.replace(",", " ") }
         .flatMap { Pattern.compile("\\s+").splitAsStream(it) }

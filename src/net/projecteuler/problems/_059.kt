@@ -11,7 +11,7 @@ import java.nio.file.Paths
 fun main() = println(xorDecryption())
 
 private fun xorDecryption(): Int {
-    val l = Files.lines(Paths.get("res/cipher.txt")).map { it.split(",") }.findFirst().get()
+    val l = Files.lines(Paths.get("res/p059_cipher.txt")).map { it.split(",") }.findFirst().get()
     for(a in 'a'..'z')
         for(b in 'a'..'z')
             for(c in 'a'..'z') {

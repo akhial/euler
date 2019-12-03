@@ -1,7 +1,6 @@
 package net.projecteuler.problems;
 
 import net.projecteuler.api.Primes;
-import net.projecteuler.api.QuadraticExp;
 
 /**
  * <p>Straightforward, iterate over all quadratic expressions of the form n^2 + an + b
@@ -32,5 +31,21 @@ public class _027 {
             x++;
         }
         return x - 1;
+    }
+
+    private static class QuadraticExp {
+        private final int a;
+        private final int b;
+        private final int c;
+
+        public QuadraticExp(int a, int b, int c) {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
+
+        public int calculateFor(int x) {
+            return a*x*x + b*x + c;
+        }
     }
 }

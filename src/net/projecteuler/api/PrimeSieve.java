@@ -49,7 +49,6 @@ public class PrimeSieve {
                 result.add(p);
             }
         }
-        maxRequestedPrimes = Math.max(maxRequestedPrimes, n);
         return result;
     }
 
@@ -83,6 +82,7 @@ public class PrimeSieve {
                 }
             }
         }
+        maxRequestedPrimes = Math.max(maxRequestedPrimes, n);
     }
 
     public boolean isPrime(int n) {

@@ -1,13 +1,13 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Eratosthenes
+import net.projecteuler.api.PrimeSieve
 
 /**
  * Same as problem 76, except instead of branching from root 'n' into all numbers under 'n' we only traverse branches
  * with a prime root.
  */
 
-private val primes = Eratosthenes.sieve(80)
+private val primes = PrimeSieve.getSieve().getPrimes(80)
 private var n = 10
 
 fun main() = println(primeSummations())

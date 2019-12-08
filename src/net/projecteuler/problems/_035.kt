@@ -3,13 +3,13 @@ package net.projecteuler.problems
 import net.projecteuler.api.Primes
 import net.projecteuler.api.isPrime
 import net.projecteuler.api.length
-import net.projecteuler.api.dshr
+import net.projecteuler.api.powerOfTen
 
 /**
  * Brute-force, to check for circularity I shift the prime continuously to the right "length" times.
  * Checking if its prime each time.
  *
- * @see [Primes.nthPrime], [Primes.isPrime].
+ * @see [Primes.isPrime].
  */
 
 fun main() = println(circularPrimeCount())
@@ -31,3 +31,5 @@ private fun circularPrimeCount(): Int {
     }
     return count
 }
+
+private fun Int.dshr() = ((this%10)*powerOfTen(length() - 1) + this/10).toInt()

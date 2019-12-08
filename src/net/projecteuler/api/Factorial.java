@@ -7,15 +7,7 @@ public class Factorial {
     private Factorial() {}
 
     public static long factorial(int n) {
-        long result = 1;
-        if(n == 0)
-            return 1;
-        if(n == 1)
-            return 1;
-        for(int i = 1; i < n + 1; i++) {
-            result *= i;
-        }
-        return result;
+        return NumberKt.fact(n);
     }
 
     public static BigInteger largeFactorial(int n) {

@@ -1,23 +1,124 @@
 package net.projecteuler.api
 
-import kotlin.math.*
+import java.math.BigInteger
+import kotlin.math.sqrt
 
-/**
- * Gets a digit at the given index.
- *
- * @param index the index.
- */
-operator fun <T : Number> T.get(index: Int, len: Int = length()): Int {
-    val n = this.toLong()
-    var exp = (len - index - 1).toDouble()
-    if(exp < 0) exp = 0.0
-    val digit = n/10.0.pow(exp)
-    return (digit%10).toInt()
+private val smallFactorials = longArrayOf(
+        1,
+        1,
+        2,
+        6,
+        24,
+        120,
+        720,
+        5040,
+        40320,
+        362880,
+        3628800,
+        39916800,
+        479001600,
+        6227020800,
+        87178291200,
+        1307674368000,
+        20922789888000,
+        355687428096000,
+        6402373705728000,
+        121645100408832000,
+        2432902008176640000
+)
+
+private val smallSwing = longArrayOf(
+        1,
+        1,
+        1,
+        3,
+        3,
+        15,
+        5,
+        35,
+        35,
+        315,
+        63,
+        693,
+        231,
+        3003,
+        429,
+        6435,
+        6435,
+        109395,
+        12155,
+        230945,
+        46189,
+        969969,
+        88179,
+        2028117,
+        676039,
+        16900975,
+        1300075,
+        35102025,
+        5014575,
+        145422675,
+        9694845,
+        300540195,
+        300540195
+)
+
+fun fact(n: Int): Long {
+    if(n > 20 || n < 0) {
+        throw IllegalArgumentException("$n")
+    }
+    return smallFactorials[n]
 }
 
-/**
- * Returns the length of a number in digits.
- */
+fun dscFact(n: Int): BigInteger {
+    // TODO fix swing function
+    fun swing(m: Int): BigInteger {
+        if(m < 33) return BigInteger.valueOf(smallSwing[m])
+        val sqrt = sqrt(m.toDouble()).toInt()
+        val primes = PrimeSieve.getSieve().getPrimes(m + 1)
+        val aPrimes = primes.filter { it in 3..sqrt }
+        val bPrimes = primes.filter { it in sqrt + 1..m/3 }
+        val factors = arrayListOf<Int>()
+        for(prime in aPrimes) {
+            var q = m
+            var p = 1
+            while(q > 0) {
+                q /= prime
+                if(q and 1 == 1) p *= prime
+                if(p > 1) factors.add(p)
+            }
+        }
+        for(prime in bPrimes) {
+            if((n/prime) and 1 == 1) {
+                factors.add(prime)
+            }
+        }
+        return factors
+                .map { BigInteger.valueOf(it.toLong()) }
+                .reduce { x, y -> x*y }
+    }
+
+    fun oddFact(n: Int): BigInteger {
+        if(n < 2) return BigInteger.ONE
+        val t = oddFact(n/2)
+        return t.pow(2)*swing(n)
+    }
+
+    return when {
+        n < 0 -> throw ArithmeticException("factorial of negative number")
+        n < 21 -> BigInteger.valueOf(fact(n))
+        else -> {
+            var r = n
+            var bits = n
+            while(r != 0) {
+                bits -= r and 1
+                r = r shr 1
+            }
+            oddFact(n).shiftLeft(bits)
+        }
+    }
+}
+
 fun <T : Number> T.length(): Int {
     var n = toLong()
     var len = 0
@@ -29,158 +130,105 @@ fun <T : Number> T.length(): Int {
     return len
 }
 
-/**
- * Sets the digit at the given index to the given digit.
- *
- * @param digit the digit
- * @param index the index must be >0 and <length
- */
-fun <T : Number> T.setDigit(index: Int, digit: Int, len: Int = length()): Long {
-    val n = this.toLong()
-    if(digit < 0 || digit > 9) return n
-    if(index < 0 || index > len - 1) return n
-    return n + (10.0.pow((len - index) - 1.0)*(digit - this[index])).toLong()
+fun gcd(a: Int, b: Int) = gcd(a.toLong(), b.toLong()).toInt()
+
+fun gcd(a: Long, b: Long): Long = if(b == 0L) a else gcd(b, a%b)
+
+operator fun <T : Number> T.get(index: Int): Int {
+    val a = length() - index - 1
+    val digit = toLong()/powerOfTen(a)
+    return (digit%10).toInt()
 }
 
-/**
- * One-liner that returns the GCD of two integers.
- */
-fun gcd(a: Int, b: Int): Int = if(b == 0) a else gcd(b, a%b)
+fun Int.setDigit(index: Int, digit: Int, padding: Int = length()) =
+        toLong().setDigit(index, digit, padding).toInt()
 
-/**
- * One-liner that shifts all digits circularly to the right.
- * eg: 123456 -> 612345
- */
-fun Int.dshr() = ((this%10)*10.0.pow(length().toDouble() - 1) + this/10).toInt()
+fun Long.setDigit(index: Int, digit: Int, padding: Int = length()): Long {
+    if(digit < 0 || digit > 9) {
+        throw IllegalArgumentException("$digit")
+    }
+    if(index < 0 || index > padding - 1) {
+        throw ArithmeticException("index out of bounds: $index")
+    }
+    return this + powerOfTen(padding - index - 1)*(digit - this[index])
+}
 
-/**
- * Return the reversed representation of the given int.
- * eg: 123456 -> 654321
- */
-fun <T : Number> T.reverse(): Long {
-    val len = length()
-    var result = 10.0.pow(len.toDouble() - 1).toLong()
-    for(i in 0 until len)
-        result = result.setDigit(len - i - 1, this[i])
+fun Int.reverse() = toLong().reverse().toInt()
+
+fun Long.reverse(): Long {
+    val length = length()
+    var result = powerOfTen(length - 1)
+    for(i in 0 until length) {
+        result = result.setDigit(length - i - 1, this[i])
+    }
     return result
 }
 
-/**
- * Return true if int is prime.
- *
- * @see [Primes.isPrime].
- */
 fun <T : Number> T.isPrime() = Primes.isPrime(toLong())
 
-/**
- * Returns true if the number is a permutation of the other number. (Best synopsis ever btw)
- */
 fun <T : Number> T.isPermutationOf(o: T): Boolean {
     val a = toLong()
     val b = o.toLong()
-    val len = a.length()
-    if(len != b.length()) return false
-    val digits = Array(10) {0}
-    a.digits().map { it.toInt() }.forEach { digits[it]++ }
-    b.digits().map { it.toInt() }.forEach { digits[it]-- }
+    if(a.length() != b.length()) return false
+    val digits = Array(10) { 0 }
+    a.digits().forEach { digits[it.toInt()]++ }
+    b.digits().forEach { digits[it.toInt()]-- }
     return digits.all { it == 0 }
 }
 
-/**
- * Concatenates two ints into a long.
- */
-infix fun Int.add(o: Int) = (toString() + o.toString()).toLong()
+fun Int.digits() = toLong().digits().map { it.toInt() }.toIntArray()
 
-/**
- * Returns an [IntArray] containing the digits of the given number.
- */
-fun Int.digits(len: Int = length()) = IntArray(len) { this[it, len] }
-
-fun Long.digits(len: Int = length()) = LongArray(len) { this[it, len].toLong() }
-
-/**
- * Returns true if the given number has unique digits, false otherwise.
- */
-fun Int.hasUniqueDigits(): Boolean {
-    val dg = digits()
-    return dg.none { d -> dg.count { it == d } > 1 }
+fun Long.digits(): LongArray {
+    val d = ArrayList<Long>()
+    var n = this
+    do {
+        d.add(n%10)
+        n /= 10
+    } while(n > 0)
+    return d.toLongArray().reversedArray()
 }
 
-/**
- * Returns true if the int is pandigital.
- * A number is pandigital if it uses all the digits from 1 to len once and only once.
- *
- * @param len the number of digits.
- */
-fun Int.isPandigital(len: Int): Boolean {
-    if(length() != len || len > 9) return false
-    val indices = (0 until len).map { this[it, len] - 1 }
-    return indices.containsAll((0 until len).toList())
+fun Int.isPandigital(): Boolean {
+    val l = length()
+    if(l > 9) return false
+    val indices = (0 until l).map { this[it] - 1 }
+    return indices.containsAll((0 until l).toList())
 }
 
-/**
- * A recursive function which returns an [IntArray] containing all the permutations of the digits given in
- * the calling object, permutations meaning arrangements with no repeats (!!!).
- *
- * @param prefix the currently generated permutation.
- * @param exp the index of the digit we are currently generating.
- */
-fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1): IntArray {
-    if(exp == 0) return intArrayOf(prefix + this[0])
+fun IntArray.permutations(
+        prefix: Long = 0,
+        e: Int = size - 1,
+        length: Int = size,
+        mask: Int = 0
+) = map { it.toLong() }
+        .toLongArray()
+        .permutations(prefix, e, length, mask)
+        .map { it.toInt() }
+        .toIntArray()
 
-    var s = intArrayOf()
-    for(i in 0..exp) {
-        val adv = prefix + 10.0.pow(exp.toDouble())*this[i]
-        var c = count { it == this[i] }
-        var f = filter { it != this[i] }
-        while(c-- > 1) f = f.plus(this[i])
-        s = s.plus(f.toIntArray().permutations(adv.toInt(), exp - 1))
-    }
-    return s
-}
-
-fun IntRange.permutations() = toList().toIntArray().permutations()
-
-/**
- * Same as [permutations] but stops when it reaches len digits. Used in problem 32.
- *
- * @param prefix the currently generated permutation.
- * @param exp the index of the digit we are currently generating.
- * @param len the length of the generated permutations. Used only in the first call.
- * @param mask a power of 10 generated only in the first call, used to check for base case.
- */
-fun IntArray.permutations(prefix: Int = 0, exp: Int = size - 1, len: Int = size, mask: Int = 0): IntArray {
-    val pow = if(prefix == 0) 10.0.pow((size - len).coerceAtLeast(0).toDouble() + 1).toInt() else mask
-
-    if(prefix%pow != 0) return intArrayOf(prefix/(pow/10))
-    var s = intArrayOf()
-    for(i in 0..exp) {
-        val adv = prefix + 10.0.pow(exp.toDouble())*this[i]
-        var c = count { it == this[i] }
-        var f = filter { it != this[i] }
-        while(c-- > 1) f = f.plus(this[i])
-        s = s.plus(f.toIntArray().permutations(adv.toInt(), exp - 1, mask = pow))
-    }
-    return s
-}
-
-fun IntRange.permutations(len: Int) = toList().toIntArray().permutations(len = len)
-
-/**
- * Returns all possible arrangements of the given digits in order, use when the number of digits exceeds 9.
- *
- * You can also use [IntRange.permutations].
- */
-fun LongArray.permutations(prefix: Long = 0, exp: Int = size - 1): LongArray {
-    if(exp == 0) return longArrayOf(prefix + this[0])
-
+fun LongArray.permutations(
+        prefix: Long = 0,
+        a: Int = size - 1,
+        length: Int = size,
+        mask: Int = 0
+): LongArray {
+    val m = if(prefix == 0L) powerOfTen((size - length).coerceAtLeast(0) + 1).toInt() else mask
+    if(prefix%m != 0L) return longArrayOf(prefix/(m/10))
+    if(a == 0) return longArrayOf(prefix + this[0])
     var s = longArrayOf()
-    for(i in 0..exp) {
-        val adv = prefix + 10.0.pow(exp.toDouble())*this[i]
-        var c = count { it == this[i] }
-        var f = filter { it != this[i] }
-        while(c-- > 1) f = f.plus(this[i])
-        s = s.plus(f.toLongArray().permutations(adv.toLong(), exp - 1))
+    for(i in 0..a) {
+        val d = this[i]
+        val next = prefix + powerOfTen(a)*d
+        val c = count { it == d }
+        var f = filter { it != d }
+        repeat(c - 1) { f = f + d }
+        s += f.toLongArray().permutations(next, a - 1, length, m)
     }
     return s
+}
+
+fun powerOfTen(a: Int): Long {
+    var r = 1L
+    repeat(a.coerceAtLeast(0)) { r *= 10 }
+    return r
 }

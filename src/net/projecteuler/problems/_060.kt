@@ -1,7 +1,6 @@
 package net.projecteuler.problems
 
 import net.projecteuler.api.Factors
-import net.projecteuler.api.add
 import net.projecteuler.api.isPrime
 
 /**
@@ -83,8 +82,8 @@ private fun primePairSets(): Int {
 
             while(f && n < 2) {
                 val v = when(n) {
-                    0 -> a add b
-                    1 -> b add a
+                    0 -> a cat b
+                    1 -> b cat a
                     else -> 0
                 }
                 f = isPrime(v)
@@ -98,10 +97,10 @@ private fun primePairSets(): Int {
 
                 while(f && n < 4) {
                     val v = when(n) {
-                        0 -> a add c
-                        1 -> b add c
-                        2 -> c add a
-                        3 -> c add b
+                        0 -> a cat c
+                        1 -> b cat c
+                        2 -> c cat a
+                        3 -> c cat b
                         else -> 0
                     }
                     f = isPrime(v)
@@ -115,12 +114,12 @@ private fun primePairSets(): Int {
 
                     while(f && n < 6) {
                         val v = when(n) {
-                            0 -> a add d
-                            1 -> b add d
-                            2 -> c add d
-                            3 -> d add a
-                            4 -> d add b
-                            5 -> d add c
+                            0 -> a cat d
+                            1 -> b cat d
+                            2 -> c cat d
+                            3 -> d cat a
+                            4 -> d cat b
+                            5 -> d cat c
                             else -> 0
                         }
                         f = isPrime(v)
@@ -134,14 +133,14 @@ private fun primePairSets(): Int {
 
                         while(f && n < 8) {
                             val v = when(n) {
-                                0 -> a add e
-                                1 -> b add e
-                                2 -> c add e
-                                3 -> d add e
-                                4 -> e add a
-                                5 -> e add b
-                                6 -> e add c
-                                7 -> e add d
+                                0 -> a cat e
+                                1 -> b cat e
+                                2 -> c cat e
+                                3 -> d cat e
+                                4 -> e cat a
+                                5 -> e cat b
+                                6 -> e cat c
+                                7 -> e cat d
                                 else -> 0
                             }
                             f = isPrime(v)
@@ -155,3 +154,5 @@ private fun primePairSets(): Int {
     }
     return 0
 }
+
+private infix fun Int.cat(o: Int) = (toString() + o.toString()).toLong()

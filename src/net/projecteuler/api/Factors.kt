@@ -2,17 +2,12 @@ package net.projecteuler.api
 
 import kotlin.math.pow
 
-/**
- * Represents the prime factors of an integer.
- */
 class Factors(val factors: ArrayList<Pair<Int, Int>>) {
-
     companion object {
-        fun getPrimes(n: Int): ArrayList<Int> {
-            return Eratosthenes.sieve(n)
-        }
+        private val primeSieve = PrimeSieve.getSieve()
+        private var primes = primeSieve.getPrimes(100)
 
-        var primes = Eratosthenes.sieve(10000)
+        fun getPrimes(n: Int) = primeSieve.getPrimes(n)
 
         fun of(n: Int): Factors {
             val f = arrayListOf<Pair<Int, Int>>()
@@ -24,7 +19,7 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
             }
 
             if(n > primes.last()*primes.last())
-                primes = Eratosthenes.sieve(n)
+                primes = primeSieve.getPrimes(n)
 
             var r = n
             var i = 0
@@ -47,14 +42,8 @@ class Factors(val factors: ArrayList<Pair<Int, Int>>) {
         }
     }
 
-    /**
-     * Calculates the value of the factors in [factors].
-     */
     fun value() = factors.map { it.first.toDouble().pow(it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
 
-    /**
-     * Returns the number of factors.
-     */
     fun count() = factors.count()
 
     override fun equals(other: Any?): Boolean {

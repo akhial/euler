@@ -1,6 +1,8 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.api.get
+import net.projecteuler.api.permutations
+import net.projecteuler.api.setDigit
 
 /**
  * I first generate all 10-digit pandigital permutations, then I construct the 3-digit sequences in a loop.
@@ -19,10 +21,9 @@ private fun divisiblePandigitals(): Long {
     var t = 0L
     for(c in p) {
         var r = true
-        val l = c.length()
         for(n in 1 until 8) {
             var s = 0
-            for(j in 0..2) s = s.setDigit(j, c[n + j, l], 3).toInt()
+            for(j in 0..2) s = s.setDigit(j, c[n + j], 3)
             r = r && s%primes[n - 1] == 0
             if(!r) break
         }

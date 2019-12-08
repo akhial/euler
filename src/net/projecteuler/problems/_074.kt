@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factorial.factorial
 import net.projecteuler.api.digits
+import net.projecteuler.api.fact
 
 /**
  * Uses floyd's cycle detection algorithm (or tortoise and hare algorithm) to find cycles. Much like in Pollard's rho
@@ -9,8 +9,6 @@ import net.projecteuler.api.digits
  *
  * Further reading: https://en.wikipedia.org/wiki/Cycle_detection
  */
-
-private val fact = Array(10) { factorial(it) }
 
 fun main() = println(digitFactorialChains())
 
@@ -43,4 +41,4 @@ fun floyd(n: Long, f: (Long) -> Long): Int {
     return s + l
 }
 
-private fun g(n: Long): Long = n.digits().map { fact[it.toInt()] }.sum()
+private fun g(n: Long): Long = n.digits().map { fact(it.toInt()) }.sum()

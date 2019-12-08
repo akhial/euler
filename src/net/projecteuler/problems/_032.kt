@@ -1,6 +1,9 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.api.get
+import net.projecteuler.api.isPandigital
+import net.projecteuler.api.length
+import net.projecteuler.api.permutations
 
 /**
  * The main challenge-ish with this problem was finding the permutations of given digits with a given length.
@@ -22,11 +25,11 @@ fun main() = println(pandigitalProducts())
 private fun pandigitalProducts(): Int {
     val products = HashSet<Int>()
     for(a in 1 until 10)
-        digits.filter { it != a }.toIntArray().permutations(len = 4)
+        digits.filter { it != a }.toIntArray().permutations(length = 4)
                 .filter { isPanProduct(a, it) }
                 .forEach { products.add(a*it) }
-    for(a in (1 until 10).toList().toIntArray().permutations(len = 2))
-        digits.filter { it != a[0] && it != a[1] }.toIntArray().permutations(len = 3)
+    for(a in (1 until 10).toList().toIntArray().permutations(length = 2))
+        digits.filter { it != a[0] && it != a[1] }.toIntArray().permutations(length = 3)
                 .filter { isPanProduct(a, it) }
                 .forEach { products.add(a*it) }
     return products.sum()
@@ -37,5 +40,5 @@ private fun isPanProduct(a: Int, b: Int): Boolean {
     if(product.length() > 4) return false
     val s = a.toString() + b.toString() + product.toString()
     val t = Integer.parseInt(s)
-    return t.isPandigital(9)
+    return t.isPandigital()
 }

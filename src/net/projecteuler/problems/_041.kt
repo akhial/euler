@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.api.isPrime
+import net.projecteuler.api.permutations
 
 /**
  * Iterate over the permutations of 1 to n digits for n < 9 then filter the primes and find the largest one.
@@ -8,4 +9,4 @@ import net.projecteuler.api.*
 
 fun main() = println(pandigitalPrime())
 
-private fun pandigitalPrime() = (1..9).map { n -> (1..n).permutations().filter { it.isPrime() }.max() }.map { it ?: 0 }.max()!!
+private fun pandigitalPrime() = (1..9).map { n -> (1..n).toList().toIntArray().permutations().filter { it.isPrime() }.max() }.map { it ?: 0 }.max()!!

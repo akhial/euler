@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.PrimeSieve
+import net.projecteuler.math.PrimeSieve
 
 /**
  * Same as problem 76, except instead of branching from root 'n' into all numbers under 'n' we only traverse branches

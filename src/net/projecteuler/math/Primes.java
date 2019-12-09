@@ -1,4 +1,4 @@
-package net.projecteuler.api;
+package net.projecteuler.math;
 
 public class Primes {
 

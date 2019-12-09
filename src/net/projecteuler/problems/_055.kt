@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.reverse
+import net.projecteuler.math.reverse
 
 /**
  * While we haven't done 50 iterations add to the current n it's reverse and check it it's palindromic,

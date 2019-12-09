@@ -1,9 +1,9 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factors
-import net.projecteuler.api.isPrime
-import net.projecteuler.api.length
-import net.projecteuler.api.setDigit
+import net.projecteuler.math.Factors
+import net.projecteuler.math.isPrime
+import net.projecteuler.math.length
+import net.projecteuler.math.setDigit
 import kotlin.math.pow
 
 /**

@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPrime
+import net.projecteuler.math.isPrime
 
 /**
  * First we calculate the first max composites and the first n primes < the largest composite.

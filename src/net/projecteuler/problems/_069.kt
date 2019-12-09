@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factors
+import net.projecteuler.math.Factors
 import kotlin.math.roundToInt
 
 /**

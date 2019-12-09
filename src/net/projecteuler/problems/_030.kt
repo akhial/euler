@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.get
-import net.projecteuler.api.length
+import net.projecteuler.math.get
+import net.projecteuler.math.length
 import kotlin.math.pow
 
 /**

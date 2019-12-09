@@ -1,9 +1,9 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.get
-import net.projecteuler.api.isPandigital
-import net.projecteuler.api.length
-import net.projecteuler.api.permutations
+import net.projecteuler.math.get
+import net.projecteuler.math.isPandigital
+import net.projecteuler.math.length
+import net.projecteuler.math.permutations
 
 /**
  * The main challenge-ish with this problem was finding the permutations of given digits with a given length.

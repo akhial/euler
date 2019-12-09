@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.bigFact
+import net.projecteuler.math.bigFact
 import java.math.BigInteger
 
 /**

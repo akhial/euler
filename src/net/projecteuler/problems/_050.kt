@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factors
-import net.projecteuler.api.isPrime
+import net.projecteuler.math.Factors
+import net.projecteuler.math.isPrime
 
 /**
  * Iterate over i and j then check the sum of the i-th to j-th prime, if it is prime and the number of primes

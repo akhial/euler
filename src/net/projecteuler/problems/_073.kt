@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.gcd
+import net.projecteuler.math.gcd
 
 /**
  * Brute force. Find the number of pairs (n, d) that satisfy: n < d, gcd(n, d)=1 and a < n/d < b.

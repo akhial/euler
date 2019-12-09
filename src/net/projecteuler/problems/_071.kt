@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.gcd
+import net.projecteuler.math.gcd
 import kotlin.math.abs
 
 /**
@@ -19,7 +19,7 @@ private fun orderedFractions(): Int {
 
     for(d in 1000000 downTo 8) {
         var n = (a*d).toInt()
-        if(gcd(n, d) != 1) while(gcd(--n, d) != 1);
+        if(gcd(n, d) != 1) while(gcd(n, d) != 1) n--
         val t = abs(n.toDouble()/d - a)
         if(t < min) {
             min = t

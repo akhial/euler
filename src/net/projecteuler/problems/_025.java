@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Fibonacci;
+import net.projecteuler.math.Fibonacci;
 
 import java.math.BigInteger;
 

@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPermutationOf
-import net.projecteuler.api.length
+import net.projecteuler.math.isPermutationOf
+import net.projecteuler.math.length
 import kotlin.math.ceil
 import kotlin.math.floor
 import kotlin.math.pow

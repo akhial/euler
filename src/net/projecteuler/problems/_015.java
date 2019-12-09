@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.NumberKt;
+import net.projecteuler.math.NumberKt;
 
 import java.math.BigInteger;
 

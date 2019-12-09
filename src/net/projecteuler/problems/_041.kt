@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPrime
-import net.projecteuler.api.permutations
+import net.projecteuler.math.isPrime
+import net.projecteuler.math.permutations
 
 /**
  * Iterate over the permutations of 1 to n digits for n < 9 then filter the primes and find the largest one.

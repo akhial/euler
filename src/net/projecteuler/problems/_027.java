@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Primes;
+import net.projecteuler.math.Primes;
 
 /**
  * <p>Straightforward, iterate over all quadratic expressions of the form n^2 + an + b

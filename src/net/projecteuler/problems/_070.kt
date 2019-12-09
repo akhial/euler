@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPermutationOf
+import net.projecteuler.math.isPermutationOf
 
 /**
  * Brute Force.

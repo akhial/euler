@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factors
+import net.projecteuler.math.Factors
 
 /**
  * Iterates over n using memoization to save previously calculated factors. Always calculating the

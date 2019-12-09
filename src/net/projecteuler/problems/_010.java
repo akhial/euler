@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Primes;
+import net.projecteuler.math.Primes;
 
 public class _010 {
 

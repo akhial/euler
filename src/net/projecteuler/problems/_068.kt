@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.digits
-import net.projecteuler.api.permutations
+import net.projecteuler.math.digits
+import net.projecteuler.math.permutations
 
 /**
  * Indices used in the array 'v':

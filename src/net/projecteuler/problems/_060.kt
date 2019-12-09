@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Factors
-import net.projecteuler.api.isPrime
+import net.projecteuler.math.Factors
+import net.projecteuler.math.isPrime
 
 /**
  * Optimisation? Hell yeah..

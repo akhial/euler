@@ -1,8 +1,8 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.fact
-import net.projecteuler.api.get
-import net.projecteuler.api.length
+import net.projecteuler.math.fact
+import net.projecteuler.math.get
+import net.projecteuler.math.length
 
 /**
  * Brute-force, the limit of 50000 was found through trial and error.

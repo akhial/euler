@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
-import java.lang.Math.pow
+import net.projecteuler.math.isPrime
+import net.projecteuler.math.length
 import kotlin.math.pow
 
 /**

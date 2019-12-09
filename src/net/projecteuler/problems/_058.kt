@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.isPrime
+import net.projecteuler.math.isPrime
 
 /**
  * We calculate the number of primes on the nth border and add that to the accumulated total, the number of integers

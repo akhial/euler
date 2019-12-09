@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.gcd
+import net.projecteuler.math.gcd
 
 /**
  * Generate all primitive triple sums < l = 1500000 using Euler's formula: Every triplet (a, b, c) of the form

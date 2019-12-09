@@ -1,9 +1,9 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.Primes
-import net.projecteuler.api.isPrime
-import net.projecteuler.api.length
-import net.projecteuler.api.powerOfTen
+import net.projecteuler.math.Primes
+import net.projecteuler.math.isPrime
+import net.projecteuler.math.length
+import net.projecteuler.math.powerOfTen
 
 /**
  * Brute-force, to check for circularity I shift the prime continuously to the right "length" times.

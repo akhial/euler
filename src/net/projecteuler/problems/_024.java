@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Factorial;
+import net.projecteuler.math.NumberKt;
 
 import java.util.Arrays;
 
@@ -48,13 +48,13 @@ public class _024 {
         while(place >= 0) {
             digit = -1;
             while(order > 0) {
-                order -= Factorial.factorial(place);
+                order -= NumberKt.fact(place);
                 digit++;
                 while(!available[digit])
                     digit++;
             }
             available[digit] = false;
-            order += Factorial.factorial(place);
+            order += NumberKt.fact(place);
             result += Math.pow(10, place)*digit;
             place--;
         }

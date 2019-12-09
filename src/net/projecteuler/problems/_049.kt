@@ -1,6 +1,9 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.math.digits
+import net.projecteuler.math.isPrime
+import net.projecteuler.math.length
+import net.projecteuler.math.permutations
 
 /**
  * For the odd numbers p between 10000 and 1000 non-inclusive, we check every possible arithmetic progression

@@ -1,8 +1,8 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.digits
-import net.projecteuler.api.get
-import net.projecteuler.api.length
+import net.projecteuler.math.digits
+import net.projecteuler.math.get
+import net.projecteuler.math.length
 import java.nio.file.Files
 import java.nio.file.Paths
 import kotlin.streams.toList

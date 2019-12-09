@@ -1,8 +1,8 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.get
-import net.projecteuler.api.permutations
-import net.projecteuler.api.setDigit
+import net.projecteuler.math.get
+import net.projecteuler.math.permutations
+import net.projecteuler.math.setDigit
 
 /**
  * I first generate all 10-digit pandigital permutations, then I construct the 3-digit sequences in a loop.

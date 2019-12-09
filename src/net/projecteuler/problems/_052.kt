@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.math.digits
+import net.projecteuler.math.permutations
 
 /**
  * For every n, check the products of n and 2 to 6 for whether they are contained in the permutations of n.

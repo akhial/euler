@@ -1,6 +1,6 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.length
+import net.projecteuler.math.length
 
 /**
  * My first approach to this problem was generating all cyclic sequences by looping through values of a, b, c, d, e

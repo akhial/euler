@@ -1,7 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.digits
-import net.projecteuler.api.fact
+import net.projecteuler.math.digits
+import net.projecteuler.math.fact
 
 /**
  * Uses floyd's cycle detection algorithm (or tortoise and hare algorithm) to find cycles. Much like in Pollard's rho

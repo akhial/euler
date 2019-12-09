@@ -1,6 +1,7 @@
 package net.projecteuler.problems
 
-import net.projecteuler.api.*
+import net.projecteuler.math.gcd
+import net.projecteuler.math.get
 
 /**
  * A brute-force method, we check if the number have a digit in common (ignoring trivial cases),

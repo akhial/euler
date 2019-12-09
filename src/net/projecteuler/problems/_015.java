@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Factorial;
+import net.projecteuler.api.NumberKt;
 
 import java.math.BigInteger;
 
@@ -11,6 +11,6 @@ public class _015 {
     }
 
     private static BigInteger factorial(int n) {
-        return Factorial.largeFactorial(n);
+        return NumberKt.bigFact(n);
     }
 }

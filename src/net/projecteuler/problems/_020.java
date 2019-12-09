@@ -1,6 +1,6 @@
 package net.projecteuler.problems;
 
-import net.projecteuler.api.Factorial;
+import net.projecteuler.api.NumberKt;
 
 import java.math.BigInteger;
 
@@ -11,7 +11,7 @@ import java.math.BigInteger;
 public class _020 {
 
     public static void main(String[] args) {
-        BigInteger result = Factorial.largeFactorial(100);
+        BigInteger result = NumberKt.bigFact(100);
         System.out.println(result.toString().chars().map(Character::getNumericValue).sum());
     }
 }

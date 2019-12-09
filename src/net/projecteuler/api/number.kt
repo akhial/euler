@@ -1,7 +1,6 @@
 package net.projecteuler.api
 
 import java.math.BigInteger
-import kotlin.math.sqrt
 
 private val smallFactorials = longArrayOf(
         1,
@@ -27,42 +26,6 @@ private val smallFactorials = longArrayOf(
         2432902008176640000
 )
 
-private val smallSwing = longArrayOf(
-        1,
-        1,
-        1,
-        3,
-        3,
-        15,
-        5,
-        35,
-        35,
-        315,
-        63,
-        693,
-        231,
-        3003,
-        429,
-        6435,
-        6435,
-        109395,
-        12155,
-        230945,
-        46189,
-        969969,
-        88179,
-        2028117,
-        676039,
-        16900975,
-        1300075,
-        35102025,
-        5014575,
-        145422675,
-        9694845,
-        300540195,
-        300540195
-)
-
 fun fact(n: Int): Long {
     if(n > 20 || n < 0) {
         throw IllegalArgumentException("$n")
@@ -70,51 +33,43 @@ fun fact(n: Int): Long {
     return smallFactorials[n]
 }
 
-fun dscFact(n: Int): BigInteger {
-    // TODO fix swing function
-    fun swing(m: Int): BigInteger {
-        if(m < 33) return BigInteger.valueOf(smallSwing[m])
-        val sqrt = sqrt(m.toDouble()).toInt()
-        val primes = PrimeSieve.getSieve().getPrimes(m + 1)
-        val aPrimes = primes.filter { it in 3..sqrt }
-        val bPrimes = primes.filter { it in sqrt + 1..m/3 }
-        val factors = arrayListOf<Int>()
-        for(prime in aPrimes) {
-            var q = m
-            var p = 1
-            while(q > 0) {
-                q /= prime
-                if(q and 1 == 1) p *= prime
-                if(p > 1) factors.add(p)
-            }
+fun bigFact(n: Int): BigInteger {
+    var c = BigInteger.ONE
+    fun product(n: Int): BigInteger {
+        val m = n/2
+        if(m == 0) {
+            c += BigInteger.TWO
+            return c
         }
-        for(prime in bPrimes) {
-            if((n/prime) and 1 == 1) {
-                factors.add(prime)
-            }
+        if(n == 2) {
+            c += BigInteger.valueOf(4)
+            return c*(c - BigInteger.TWO)
         }
-        return factors
-                .map { BigInteger.valueOf(it.toLong()) }
-                .reduce { x, y -> x*y }
+        return product(n - m)*product(m)
     }
-
-    fun oddFact(n: Int): BigInteger {
-        if(n < 2) return BigInteger.ONE
-        val t = oddFact(n/2)
-        return t.pow(2)*swing(n)
-    }
-
     return when {
-        n < 0 -> throw ArithmeticException("factorial of negative number")
+        n < 0 -> throw IllegalArgumentException("$n")
         n < 21 -> BigInteger.valueOf(fact(n))
         else -> {
-            var r = n
-            var bits = n
-            while(r != 0) {
-                bits -= r and 1
-                r = r shr 1
+            c = BigInteger.ONE
+            var p = BigInteger.ONE
+            var r = BigInteger.ONE
+            var h = 0
+            var shift = 0
+            var high = 1
+            var log2n = kotlin.math.log2(n.toDouble()).toInt()
+            while(h != n) {
+                shift += h
+                h = n shr log2n--
+                var len = high
+                high = (h - 1) or 1
+                len = (high - len)/2
+                if(len > 0) {
+                    p *= product(len)
+                    r *= p
+                }
             }
-            oddFact(n).shiftLeft(bits)
+            return r shl shift
         }
     }
 }

@@ -92,15 +92,14 @@ public class PrimeSieve {
 
     @NotNull
     public ArrayList<Integer> getPrimes(int n) {
-        double f = (n <= 1000) ? 1.25507 : 1.137;
-        double limit = f*n/Math.log(n);
+        int limit = (int) (n/Math.log(n - 1.5));
         if(n < 2) {
             return new ArrayList<>();
         }
         if(n <= maxRequestedPrimes) {
-            return getPrimeList(n, (int) limit);
+            return getPrimeList(n, limit);
         }
         sieve(n);
-        return getPrimeList(n, (int) limit);
+        return getPrimeList(n, limit);
     }
 }

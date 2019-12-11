@@ -1,7 +1,11 @@
-# Euler
-![akhial](https://projecteuler.net/profile/akhial.png)
+# Adel's Project Euler Solutions
+My solutions to the math problems on Project Euler, in Java and Kotlin. 
 
-My solutions to the problems on Project Euler, in Java and Kotlin. Most of the problems also include comments detailing the solution.
-You can find the problems in the [Project Euler Archive](https://projecteuler.net/archives), you can also download a text file containing the first 476 problems [here](https://github.com/davidcorbin/euler-offline).
+All solutions include an explanation at the top, although sometimes I don't really explain much.
+
+You can find the problems in the [Project Euler Archive](https://projecteuler.net/archives), 
+you can also download a text file containing the first 476 problems at Kyle Keen's [Local Euler](https://github.com/davidcorbin/euler-offline) project.
+
+![akhial](https://projecteuler.net/profile/akhial.png)
 
 Add me! ```1081591_6yskEL6ULbeTwnvnq2yciK9gUifRDzzG```

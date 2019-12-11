@@ -16,9 +16,7 @@ import kotlin.math.pow
  * I then use this number to determine the highest card to break ties, there are better ways to do this.
  */
 
-fun main() = println(pokerHands())
-
-private fun pokerHands(): Int {
+fun pokerHands(): Int {
     var count = 0
     Files.lines(Paths.get("res/p054_poker.txt")).forEach {
         val cards = it.split(" ")

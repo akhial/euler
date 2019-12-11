@@ -13,9 +13,7 @@ import kotlin.math.sqrt
  * https://stackoverflow.com/questions/12182701/generating-continued-fractions-for-square-roots
  */
 
-fun main() = println(oddPeriodSquareRoots())
-
-private fun oddPeriodSquareRoots(): Int = (2..10000).filter { cfSqrt(it).size%2 == 0 }.count()
+fun oddPeriodSquareRoots(): Int = (2..10000).filter { cfSqrt(it).size%2 == 0 }.count()
 
 fun cfSqrt(n: Int): ArrayList<Int> {
     val r = floor(sqrt(n.toDouble())).toInt()

@@ -9,10 +9,10 @@ import java.math.BigInteger
 private const val maxA = 100
 private const val maxB = 100
 
-fun main() {
+fun distinctPowers(): Int {
     val set = HashSet<BigInteger>()
     for(a in 2..maxA) {
         (2..maxB).mapTo(set) { BigInteger.valueOf(a.toLong()).pow(it) }
     }
-    println(set.size)
+    return set.size
 }

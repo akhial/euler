@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class _022 {
 
-    public static void main(String[] args) throws IOException {
+    public static int namesScores() throws IOException {
         List<Integer> values = Files.lines(Paths.get("res/p022_names.txt"))
                 .map(line -> line.replaceAll("\"", ""))
                 .map(line -> line.replaceAll(",", " "))
@@ -24,6 +24,6 @@ public class _022 {
                 .collect(Collectors.toList());
         for(int i = 0; i < values.size(); i++)
             values.set(i, values.get(i)*(i + 1));
-        System.out.println(values.stream().reduce(0, Integer::sum));
+        return values.stream().reduce(0, Integer::sum);
     }
 }

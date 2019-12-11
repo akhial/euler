@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 public class _025 {
 
-    public static void main(String[] args) {
+    public static int _1000digitFibonacciNumber() {
         int order = 2;
         BigInteger number = BigInteger.ZERO;
         FibIterator fibonacci = new FibIterator();
@@ -19,7 +19,7 @@ public class _025 {
             number = fibonacci.nextBigFibonacci();
             order++;
         }
-        System.out.println(order);
+        return order;
     }
 
     private static boolean isOneK(BigInteger bigInteger) {

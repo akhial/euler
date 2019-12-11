@@ -22,9 +22,7 @@ import java.math.BigInteger
 private val zero = Pair(BigInteger.ZERO, BigInteger.ZERO)
 private val pairs = Array(1000) { zero }
 
-fun main() = println(squareRootConvergents())
-
-private fun squareRootConvergents(): Int = (1..1000)
+fun squareRootConvergents(): Int = (1..1000)
         .map { rsqrt(it) }
         .map { Pair(it.first + it.second, it.first) }
         .count { it.first.toString().length > it.second.toString().length }

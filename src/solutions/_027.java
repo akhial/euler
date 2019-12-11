@@ -9,7 +9,7 @@ import math.PrimeUtils;
 
 public class _027 {
 
-    public static void main(String[] args) {
+    public static int quadraticPrimes() {
         int max = 0;
         int newMax;
         int product = 0;
@@ -21,7 +21,7 @@ public class _027 {
                 }
             }
         }
-        System.out.println(product);
+        return product;
     }
 
     private static int primesGenerated(int a, int b) {

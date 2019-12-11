@@ -11,9 +11,7 @@ import java.math.BigInteger
 
 private val cf = Array(100) { if(it == 0) 2 else if(it%3 == 2) 2*(it + 1)/3 else 1 }
 
-fun main() = println(convergentsOfE())
-
-private fun convergentsOfE(): Int = cfCalc(ArrayList(cf.asList())).second.toString().map { Character.getNumericValue(it) }.sum()
+fun convergentsOfE(): Int = cfCalc(ArrayList(cf.asList())).second.toString().map { Character.getNumericValue(it) }.sum()
 
 fun cfCalc(cf: ArrayList<Int>): Pair<BigInteger, BigInteger> {
     var c = Pair(BigInteger.ONE, BigInteger.valueOf(cf.last().toLong()))

@@ -9,9 +9,7 @@ import kotlin.math.pow
  * After that simply access indices in the string and multiply them.
  */
 
-fun main() = println(champernowne())
-
-private fun champernowne(): Int {
+fun champernownesConstant(): Int {
     val sb = StringBuilder()
     for(i in 1..1000000) sb.append(i)
     val s = sb.toString()

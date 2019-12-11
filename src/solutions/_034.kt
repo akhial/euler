@@ -8,9 +8,7 @@ import math.length
  * Brute-force, the limit of 50000 was found through trial and error.
  */
 
-fun main() = println(factSum())
-
-private fun factSum(): Int {
+fun digitFactorials(): Int {
     var result = 0
     for(n in 3..50000) {
         val sum = (0 until n.length()).sumBy { fact(n[it]).toInt() }

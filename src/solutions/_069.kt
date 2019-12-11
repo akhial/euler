@@ -15,9 +15,7 @@ import math.phi
  *  Further reading: https://en.wikipedia.org/wiki/Euler's_totient_function
  */
 
-fun main() = println(totientMaximum())
-
-private fun totientMaximum(): Int {
+fun totientMaximum(): Int {
     var max = 0.0
     var maxC = 0
 

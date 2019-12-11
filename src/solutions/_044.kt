@@ -10,9 +10,7 @@ package solutions
 private const val max = 2400
 private val p = Array(max) { (0.5*(it + 1)*(3*(it + 1) - 1)).toInt() }
 
-fun main() = println(pentagonal())
-
-private fun pentagonal(): Int {
+fun pentagonNumbers(): Int {
     var r = 0
     for(i in 1 until max) (i until max).filter { p.contains(p[i] + p[it]) && p.contains(p[it] - p[i]) }
             .forEach { r = p[it] - p[i] }

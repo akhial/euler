@@ -10,7 +10,7 @@ public class _021 {
 
     private static final int MAX = 10000;
 
-    public static void main(String[] args) {
+    public static long amicableNumbers() {
         long total = 0;
         int[] pastSums = new int[MAX];
 
@@ -22,7 +22,7 @@ public class _021 {
                 if(pastSums[pastSums[i - 2] - 2] == i)
                     total += i;
         }
-        System.out.println(total);
+        return total;
     }
 
     private static int divisorSum(int n) {

@@ -5,13 +5,9 @@ import math.phi
 
 /**
  * Brute Force.
- *
- * See _069.kt for [phi].
  */
 
-fun main() = println(totientPermutation())
-
-private fun totientPermutation(): Int {
+fun totientPermutation(): Int {
     var min = Double.MAX_VALUE
     var minC = 0
 

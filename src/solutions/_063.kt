@@ -9,9 +9,7 @@ import kotlin.math.pow
  * with exponents less than 20. This is because 9^20 > MAX_LONG.
  */
 
-fun main() = println(powerfulDigitCounts())
-
-private fun powerfulDigitCounts(): Int {
+fun powerfulDigitCounts(): Int {
     var count = 0
     for(exp in 1..19) {
         for(n in 1..9) {

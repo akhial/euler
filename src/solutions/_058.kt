@@ -8,9 +8,7 @@ import math.isPrime
  * When the ratio = primes / 2n-1 < 10 we stop.
  */
 
-fun main() = println(spiralPrimes())
-
-private fun spiralPrimes(): Int {
+fun spiralPrimes(): Int {
     var ratio = 100
     var n = 3
     var p = 0

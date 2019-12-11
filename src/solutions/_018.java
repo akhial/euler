@@ -9,7 +9,7 @@ public class _018 {
     private static final int numberOfRows = 15;
     private static String[][] rows;
 
-    public static void main(String[] args) {
+    public static int maximumPathSumI() {
         rows = new String[numberOfRows][];
         String triangle = "75\n" +
                 "95 64\n" +
@@ -31,7 +31,7 @@ public class _018 {
         for(int i = 0; i < numberOfRows; i++) {
             rows[i] = tokens[i].split(" ");
         }
-        System.out.println(sum(0, 0));
+        return sum(0, 0);
     }
 
     private static int sum(int row, int column) {

@@ -2,7 +2,7 @@ package solutions;
 
 public class _009 {
 
-    public static void main(String[] args) {
+    public static int specialPythagoreanTriplet() {
         int a = 0, b = 0, c = 0;
         boolean found = false;
 
@@ -21,6 +21,6 @@ public class _009 {
             }
             if(found) break;
         }
-        System.out.println(a*b*c);
+        return a*b*c;
     }
 }

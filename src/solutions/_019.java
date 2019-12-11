@@ -9,7 +9,7 @@ public class _019 {
 
     private static final int[] monthDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    public static void main(String[] args) {
+    public static int countingSundays() {
         int day = 1;
         int month = 1;
         int year = 1901;
@@ -19,7 +19,7 @@ public class _019 {
         while(year != 2001) {
             if(weekday == 0 && day == 1) {
                 count++;
-                System.out.println(dayName(weekday) + " " + day + "/" +  month + "/" + year);
+                System.out.println(dayName(weekday) + " " + day + "/" + month + "/" + year);
             }
             day++;
             weekday++;
@@ -37,7 +37,7 @@ public class _019 {
                     monthDays[1] = 28;
             }
         }
-        System.out.println(count - 1);
+        return count - 1;
     }
 
     private static boolean isLeapYear(int year) {

@@ -11,14 +11,9 @@ import kotlin.math.pow
 
 private const val max = 500_000
 
-fun main() {
-    val sum = (2..max)
-            .filter { it.isSumExpressible(5) }
-            .sum()
-    println(sum)
-}
+fun digitFifthPowers(): Int = (2..max)
+        .filter { it.isSumExpressible(5) }
+        .sum()
 
-private fun Int.isSumExpressible(exponent: Int): Boolean {
-    val sum = (1..this.length()).sumBy { this[it - 1].toDouble().pow(exponent.toDouble()).toInt() }
-    return this == sum
-}
+private fun Int.isSumExpressible(exponent: Int): Boolean =
+        this == (1..this.length()).sumBy { this[it - 1].toDouble().pow(exponent.toDouble()).toInt() }

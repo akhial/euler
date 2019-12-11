@@ -10,9 +10,7 @@ import kotlin.math.pow
  * The rest is just iteration and checking.
  */
 
-fun main() = println(truncateCount())
-
-private fun truncateCount(): Int {
+fun truncatablePrimes(): Int {
     var count = 0
     var n = 11
     var sum = 0

@@ -12,9 +12,7 @@ import kotlin.streams.toList
  * at least 8 digits in the number.
  */
 
-fun main() = println(passcodeDerivation())
-
-private fun passcodeDerivation(): Int {
+fun passcodeDerivation(): Int {
     val l = Files.lines(Paths.get("res/p079_keylog.txt")).sorted().distinct().toList()
     for(i in 70000000..100000000) {
         val d = i.digits()

@@ -13,7 +13,7 @@ public class _023 {
 
     private static final int ABUNDANT_TOTAL = 6965;
 
-    public static void main(String[] args) {
+    public static int nonabundantSums() {
         int[] abundantNumbers = new int[ABUNDANT_TOTAL];
         int total = 0;
 
@@ -36,7 +36,7 @@ public class _023 {
             if(!writable)
                 total += i;
         }
-        System.out.println(total);
+        return total;
     }
 
     private static boolean isAbundant(int n) {

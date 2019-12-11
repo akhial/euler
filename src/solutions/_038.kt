@@ -8,9 +8,7 @@ package solutions
  * the new max.
  */
 
-fun main() = println(pandigitalMultiple())
-
-private fun pandigitalMultiple(): Int {
+fun pandigitalMultiples(): Int {
     var max = 0
     for(n in 1..10000) {
         var s = ""

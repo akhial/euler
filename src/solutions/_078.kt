@@ -15,9 +15,7 @@ import kotlin.math.sqrt
 private const val M = 60000
 private val p = Array<BigInteger>(M + 1) { BigInteger.ZERO }
 
-fun main() = println(coinPartitions())
-
-private fun coinPartitions(): Int {
+fun coinPartitions(): Int {
     p[0] = BigInteger.ONE
     return (1..M).first{ p(it).mod(1000000.toBigInteger()) == BigInteger.ZERO }
 }

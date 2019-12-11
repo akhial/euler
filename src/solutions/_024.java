@@ -38,13 +38,13 @@ import java.util.Arrays;
 
 public class _024 {
 
-    public static void main(String[] args) {
+    public static long lexicographicPermutations() {
         int place = 9, order = 1000000, digit;
         long result = 0;
 
         boolean[] available = new boolean[10];
         Arrays.fill(available, true);
-        
+
         while(place >= 0) {
             digit = -1;
             while(order > 0) {
@@ -58,6 +58,6 @@ public class _024 {
             result += Math.pow(10, place)*digit;
             place--;
         }
-        System.out.println(result);
+        return result;
     }
 }

@@ -8,9 +8,7 @@ import math.permutations
  * Return the first one found.
  */
 
-fun main() = println(permutedMultiples())
-
-private fun permutedMultiples(): Int {
+fun permutedMultiples(): Int {
     for(n in 125874..1000000) {
         val p = n.digits().permutations()
         var f = true

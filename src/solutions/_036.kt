@@ -5,9 +5,10 @@ package solutions
  * Checking for palindromes is done via standard library functions.
  */
 
-fun main() = println(palindromes())
-
-private fun palindromes() = (1..1000000).filter { it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic() }.sum()
+fun doublebasePalindromes() =
+        (1..1000000).filter {
+            it.toString().isPalindromic() && Integer.toBinaryString(it).isPalindromic()
+        }.sum()
 
 fun String.isPalindromic(): Boolean {
     val first = this.substring(0 until length/2)

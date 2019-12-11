@@ -4,7 +4,7 @@ import math.PrimeUtils;
 
 public class _003 {
 
-    public static void main(String[] args) {
+    public static long largestPrimeFactor() {
         long check = 600851475143L;
         long largestFactor = 1;
 
@@ -13,6 +13,6 @@ public class _003 {
                 largestFactor = l;
             }
         }
-        System.out.println(largestFactor);
+        return largestFactor;
     }
 }

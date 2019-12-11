@@ -2,7 +2,7 @@ package solutions;
 
 public class _008 {
 
-    public static void main(String[] args) {
+    public static long largestProductInASeries() {
         String number = "73167176531330624919225119674426574742355349194934" +
                 "96983520312774506326239578318016984801869478851843" +
                 "85861560789112949495459501737958331952853208805511" +
@@ -41,6 +41,6 @@ public class _008 {
             }
             index++;
         }
-        System.out.println(largest);
+        return largest;
     }
 }

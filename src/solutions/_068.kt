@@ -22,9 +22,7 @@ import math.permutations
  * update the max value.
  */
 
-fun main() = println(magic5GonRing())
-
-private fun magic5GonRing(): Long {
+fun magic5GonRing(): Long {
     val m = 10000000000000000L
     var max = 0L
     var v: LongArray

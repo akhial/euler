@@ -34,9 +34,7 @@ private val h = Array(max) { ((it + 1)*(2*(it + 1) - 1)).toLong() }
 private val n = Array(max) { (0.5*(it + 1)*(5*(it + 1) - 3)).toLong() }
 private val o = Array(max) { ((it + 1)*(3*(it + 1) - 2)).toLong() }
 
-fun main() = println(cyclicalFigurateNumbers())
-
-private fun cyclicalFigurateNumbers(): Long {
+fun cyclicalFigurateNumbers(): Long {
     val target = { i: Int ->
         when(i) {
             0 -> t

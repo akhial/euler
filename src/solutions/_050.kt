@@ -13,9 +13,7 @@ import math.isPrime
 private const val e = 7000
 private val p = PrimeSieve.getSieve().getPrimes(e)
 
-fun main() = println(consecutivePrimeSum())
-
-private fun consecutivePrimeSum(): Int {
+fun consecutivePrimeSum(): Int {
     var max = 0
     var r = 0
     for(i in 0 until p.size) {

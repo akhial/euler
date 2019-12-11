@@ -10,8 +10,8 @@ import java.math.BigInteger;
 
 public class _020 {
 
-    public static void main(String[] args) {
+    public static int factorialDigitSum() {
         BigInteger result = IntegerUtilsKt.bigFact(100);
-        System.out.println(result.toString().chars().map(Character::getNumericValue).sum());
+        return result.toString().chars().map(Character::getNumericValue).sum();
     }
 }

@@ -12,9 +12,7 @@ import math.powerOfTen
  * @see [PrimeUtils.isPrime].
  */
 
-fun main() = println(circularPrimeCount())
-
-private fun circularPrimeCount(): Int {
+fun circularPrimes(): Int {
     var count = 0
     for(n in 1 until 1000000) {
         if(n.isPrime()) {

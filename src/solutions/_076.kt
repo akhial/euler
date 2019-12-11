@@ -15,9 +15,7 @@ package solutions
 
 private const val n = 100
 
-fun main() = println(countingSummations())
-
-private fun countingSummations() = explore(n - 1, 0)
+fun countingSummations() = explore(n - 1, 0)
 
 private fun explore(x: Int, s: Int): Int {
     var c = 0

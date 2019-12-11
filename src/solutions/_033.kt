@@ -5,12 +5,10 @@ import math.get
 
 /**
  * A brute-force method, we check if the number have a digit in common (ignoring trivial cases),
- * if they do check the quotient of the two numbers and the quotient of the tzo numbers without the digits in common.
+ * if they do check the quotient of the two numbers and the quotient of the two numbers without the digits in common.
  */
 
-fun main() = println(denominatorValue())
-
-private fun denominatorValue(): Int {
+fun digitCancellingFractions(): Int {
     var productA = 1
     var productB = 1
     for(a in 11..100) {

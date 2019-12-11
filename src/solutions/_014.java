@@ -2,7 +2,7 @@ package solutions;
 
 public class _014 {
 
-    public static void main(String[] args) {
+    public static int longestCollatzSequence() {
         int start;
         long current;
         int counter = 1;
@@ -26,7 +26,6 @@ public class _014 {
             }
             counter = 1;
         }
-
-        System.out.println(bestStart + " " + largest);
+        return bestStart;
     }
 }

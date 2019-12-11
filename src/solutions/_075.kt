@@ -17,9 +17,7 @@ import math.gcd
  * Further reading: https://en.wikipedia.org/wiki/Pythagorean_triple
  */
 
-fun main() = println(singularIntegerRightTriangles())
-
-private fun singularIntegerRightTriangles(): Int {
+fun singularIntegerRightTriangles(): Int {
     val l = 1500000
     val c = IntArray(l + 1)
     val triples = generateTriples().filter { it <= 1500000 }

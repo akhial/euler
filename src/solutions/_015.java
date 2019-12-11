@@ -6,8 +6,8 @@ import java.math.BigInteger;
 
 public class _015 {
 
-    public static void main(String[] args) {
-        System.out.println(factorial(40).divide(factorial(20).multiply(factorial(20))));
+    public static String latticePaths() {
+        return factorial(40).divide(factorial(20).multiply(factorial(20))).toString();
     }
 
     private static BigInteger factorial(int n) {

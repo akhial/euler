@@ -17,9 +17,7 @@ import kotlin.math.pow
 private const val max = 10000
 private val cubes = LongArray(max) { it*it*it.toLong() }
 
-fun main() = println(cubicPermutations())
-
-private fun cubicPermutations(): Long {
+fun cubicPermutations(): Long {
     for(c in cubes) {
         val len = c.length()
         val drop = floor(Math.cbrt(10.0.pow((len - 1).toDouble()))).toInt() - 1

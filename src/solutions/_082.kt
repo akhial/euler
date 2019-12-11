@@ -13,9 +13,7 @@ private val s = 5
 private val m = Array(s) { IntArray(s) }
 private val v = Array(s) { BooleanArray(s) }
 
-fun main() = println(pathSumThreeWays())
-
-private fun pathSumThreeWays(): Int {
+fun pathSumThreeWays(): Int {
     for(r in 0 until s) {
         println(explore(r, 0))
         m.forEach { it.forEach { print("$it\t") }; println() }

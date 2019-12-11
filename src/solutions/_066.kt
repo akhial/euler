@@ -14,9 +14,7 @@ import java.math.BigInteger
  * Further reading: https://en.wikipedia.org/wiki/Pell's_equation
  */
 
-fun main() = println(diophantineEquation())
-
-private fun diophantineEquation(): Int {
+fun diophantineEquation(): Int {
     var maxD = 2
     var maxX = BigInteger.ZERO
 

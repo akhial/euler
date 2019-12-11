@@ -10,9 +10,7 @@ import kotlin.math.abs
  * The largest fraction is 428570/999997 which is very close to the trivial 428571/1000000 (a non-proper fraction).
  */
 
-fun main() = println(orderedFractions())
-
-private fun orderedFractions(): Int {
+fun orderedFractions(): Int {
     val a = 3.0/7
     var min = Double.MAX_VALUE
     var minN = 0

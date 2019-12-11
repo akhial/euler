@@ -2,7 +2,7 @@ package solutions;
 
 public class _012 {
 
-    public static void main(String[] args) {
+    public static long highlyDivisibleTriangularNumber() {
         int num = 0, i = 1;
         long number = 0;
         while(num < 500) {
@@ -10,7 +10,7 @@ public class _012 {
             num = numberOfDivisors(number);
             i++;
         }
-        System.out.println(number);
+        return number;
     }
 
     private static int numberOfDivisors(long n) {

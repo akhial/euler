@@ -1,7 +1,8 @@
 package solutions;
 
 public class _004 {
-    public static void main(String[] args) {
+
+    public static int largestPalindromeProduct() {
         int largest = 0;
         for(int i = 0; i < 1000; i++) {
             for(int j = 0; j < 1000; j++) {
@@ -14,6 +15,6 @@ public class _004 {
                 }
             }
         }
-        System.out.println(largest);
+        return largest;
     }
 }

@@ -9,9 +9,7 @@ import math.PrimeFactors
  * @see [PrimeFactors].
  */
 
-fun main() = println(distinctPrimeFactors())
-
-private fun distinctPrimeFactors(): Int {
+fun distinctPrimesFactors(): Int {
     val factors = arrayListOf<PrimeFactors>()
     var found = false
     var n = 0

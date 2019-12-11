@@ -8,9 +8,7 @@ package solutions
  * When we find a new max we set it to the max and the result to p.
  */
 
-fun main() = println(rightTriangles())
-
-private fun rightTriangles(): Int {
+fun integerRightTriangles(): Int {
     var max = 0
     var r = 0
     for(p in 1 until 1000) {

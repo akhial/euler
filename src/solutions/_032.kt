@@ -20,9 +20,7 @@ import math.permutations
 
 private val digits = intArrayOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
 
-fun main() = println(pandigitalProducts())
-
-private fun pandigitalProducts(): Int {
+fun pandigitalProducts(): Int {
     val products = HashSet<Int>()
     for(a in 1 until 10)
         digits.filter { it != a }.toIntArray().permutations(length = 4)

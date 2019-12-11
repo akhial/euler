@@ -29,9 +29,7 @@ import kotlin.math.pow
 private const val e = 125000
 private val p = PrimeSieve.getSieve().getPrimes(e)
 
-fun main() = println(primeDigitReplacements())
-
-private fun primeDigitReplacements(): Int {
+fun primeDigitReplacements(): Int {
     for(c in p) {
         val len = c.length()
         val l = 2.0.pow(len.toDouble()).toInt() - 1

@@ -11,9 +11,7 @@ private val n = File("res/p081_matrix.txt")
         .useLines { l -> l.map { it.split(",").map { s -> s.toInt() }.toIntArray() }.toList() }
 private val m = Array(n.size) { IntArray(n.size) }
 
-fun main() = println(pathSumTwoWays())
-
-private fun pathSumTwoWays(): Int = explore(0, 0)
+fun pathSumTwoWays(): Int = explore(0, 0)
 
 private fun explore(r: Int, c: Int): Int {
     if(m[r][c] != 0) return m[r][c]

@@ -10,9 +10,7 @@ import math.PrimeSieve
 private val primes = PrimeSieve.getSieve().getPrimes(80)
 private var n = 10
 
-fun main() = println(primeSummations())
-
-private fun primeSummations(): Int {
+fun primeSummations(): Int {
     while(explore(n - 1, 0) < 5000) n++
     return n
 }

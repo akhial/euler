@@ -4,7 +4,7 @@ import math.FibIterator;
 
 public class _002 {
 
-    public static void main(String[] args) {
+    public static long evenFibonacciNumbers() {
         long next = 0;
         long sum = 0;
         FibIterator fibonacci = new FibIterator();
@@ -15,6 +15,6 @@ public class _002 {
             if(next%2 == 0)
                 sum += next;
         }
-        System.out.println(sum);
+        return sum;
     }
 }

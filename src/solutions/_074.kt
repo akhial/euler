@@ -10,9 +10,7 @@ import math.fact
  * Further reading: https://en.wikipedia.org/wiki/Cycle_detection
  */
 
-fun main() = println(digitFactorialChains())
-
-private fun digitFactorialChains(): Int = (1..1000000L).filter { floyd(it, ::g) == 60 }.count()
+fun digitFactorialChains(): Int = (1..1000000L).filter { floyd(it, ::g) == 60 }.count()
 
 private fun floyd(n: Long, f: (Long) -> Long): Int {
     var t = f(n) // tortoise

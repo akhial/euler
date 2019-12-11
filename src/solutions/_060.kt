@@ -60,9 +60,7 @@ private val primes = PrimeSieve.getSieve().getPrimes(10000)
 private val max = primes.size
 private val check = HashMap<Long, Boolean>()
 
-fun main() = println(primePairSets())
-
-private fun primePairSets(): Int {
+fun primePairSets(): Int {
     val isPrime = { v: Long ->
         check[v] ?: {
             val r = v.isPrime()

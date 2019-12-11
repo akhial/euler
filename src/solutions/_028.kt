@@ -19,12 +19,10 @@ package solutions
 
 private const val spiralSize = 1001
 
-fun main() = println(spiralSum(spiralSize))
-
-private fun spiralSum(size: Int): Int {
+fun numberSpiralDiagonals(): Int {
     var sum = 1
     var i = 3
-    while(i <= size) {
+    while(i <= spiralSize) {
         val n = i*i
         val v = i - 1
         sum += 4*n - 6*v

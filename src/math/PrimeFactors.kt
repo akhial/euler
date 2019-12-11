@@ -4,7 +4,7 @@ import kotlin.math.pow
 
 class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
     companion object {
-        private var primes = arrayListOf(0)
+        private var primes = PrimeSieve.getSieve().getPrimes(1000)
 
         fun of(n: Int): PrimeFactors {
             val f = arrayListOf<Pair<Int, Int>>()

@@ -12,9 +12,7 @@ import math.permutations
  * Stop at the first progression found.
  */
 
-fun main() = println(primePermutations())
-
-private fun primePermutations(): String {
+fun primePermutations(): String {
     for(q in 5000 downTo 500) {
         val p = 2*q + 1
         for(i in 2..3330) {

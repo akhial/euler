@@ -9,6 +9,4 @@ import math.phi
  * So we sum the values of phi(n) with n in [2, 1000000].
  */
 
-fun main() = println(countingFractions())
-
-private fun countingFractions() = (2..1000000).map { phi(it).toLong() }.sum()
+fun countingFractions() = (2..1000000).map { phi(it).toLong() }.sum()

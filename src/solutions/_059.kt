@@ -8,9 +8,7 @@ import java.nio.file.Paths
  * ($, ], | and `). Sum the ASCII values of the resulting characters.
  */
 
-fun main() = println(xorDecryption())
-
-private fun xorDecryption(): Int {
+fun xorDecryption(): Int {
     val l = Files.lines(Paths.get("res/p059_cipher.txt")).map { it.split(",") }.findFirst().get()
     for(a in 'a'..'z')
         for(b in 'a'..'z')

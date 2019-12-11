@@ -8,9 +8,7 @@ import math.reverse
  * Check if we stopped because we found a palindrome or because of iterations.. if its the latter inc count.
  */
 
-fun main() = println(lychrelNumbers())
-
-private fun lychrelNumbers(): Int {
+fun lychrelNumbers(): Int {
     var c = 0
     for(n in 1 until 10000) {
         var lychrel = true

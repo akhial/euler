@@ -10,7 +10,7 @@ public class _026 {
 
     private static final int MAX_REMAINDER = 1000;
 
-    public static void main(String[] args) {
+    public static int reciprocalCycles() {
         int max = 0;
 
         for(int denominator = 6; denominator < 1000; denominator++) {
@@ -18,7 +18,7 @@ public class _026 {
                 max = denominator;
             }
         }
-        System.out.println(max);
+        return max;
     }
 
     private static int search(int v, int[] array) {

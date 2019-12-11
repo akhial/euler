@@ -19,11 +19,9 @@ package solutions
 private val coins = intArrayOf(1, 2, 5, 10, 20, 50, 100, 200)
 private const val amount = 200
 
-fun main() = println(combinationsOf())
-
-private fun combinationsOf(addend: Int = coins.size - 1, current: Int = 0): Int {
+fun coinSums(addend: Int = coins.size - 1, current: Int = 0): Int {
     if(current == amount) return 1
     if(current > amount || addend < 0) return 0
 
-    return combinationsOf(addend, current + coins[addend]) + combinationsOf(addend - 1, current)
+    return coinSums(addend, current + coins[addend]) + coinSums(addend - 1, current)
 }

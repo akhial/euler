@@ -4,8 +4,7 @@ import java.math.BigDecimal;
 
 public class _013 {
 
-    public static void main(String[] args) {
-        BigDecimal sum = new BigDecimal(0);
+    public static String largeSum() {
         String numbers = "37107287533902102798797998220837590246510135740250\n" +
                 "46376937677490009712648124896970078050417018260538\n" +
                 "74324986199524741059474233309513058123726617309629\n" +
@@ -106,6 +105,7 @@ public class _013 {
                 "72107838435069186155435662884062257473692284509516\n" +
                 "20849603980134001723930671666823555245252804609722\n" +
                 "53503534226472524250874054075591789781264330331690\n";
+        BigDecimal sum = new BigDecimal(0);
 
         String[] tokens = numbers.split("\n");
 
@@ -113,6 +113,6 @@ public class _013 {
             BigDecimal augend = new BigDecimal(token);
             sum = sum.add(augend);
         }
-        System.out.println(sum);
+        return sum.toString().substring(0, 10);
     }
 }

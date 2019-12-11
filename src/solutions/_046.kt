@@ -11,9 +11,7 @@ import math.isPrime
 
 private const val max = 3000
 
-fun main() = println(goldbach())
-
-private fun goldbach(): Int {
+fun goldbachsOtherConjecture(): Int {
     val composites = arrayListOf<Int>()
     var n = 3
     for(i in 1..max) {

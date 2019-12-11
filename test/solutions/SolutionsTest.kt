@@ -102,7 +102,5 @@ class SolutionsTest {
 
     private fun md5(bytes: ByteArray) = toHexString(MessageDigest.getInstance("md5").digest(bytes))
 
-    private fun String.md5() = md5(toByteArray())
-
-    private fun <T : Number> T.md5() = md5(toString().toByteArray())
+    private fun <T> T.md5() = md5(toString().toByteArray())
 }

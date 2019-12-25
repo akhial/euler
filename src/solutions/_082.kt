@@ -5,18 +5,18 @@ import kotlin.math.min
 
 /**
  * My initial approach was similar to problem 81, just added the direction r - 1 (up) and tweaked the stop condition
- * (reaching the end column). This causes an infinite loop as to explore the lower cell you need to explore the upper
- * one and vice-versa.
- * First remedy was to track all moves taken prior to reaching the current location in array [v], this fills [v] with
- * a "snake" of true values amidst the false ones. Similar to an actual game of snake, if the next move causes you to
- * intersect yourself (the string of locations you passed) then you consider that cell to be a "wall" (returning
- * [Int.MAX_VALUE]).
+ * (reach the end column). This causes an infinite loop because to explore down you need to explore up and vice-versa.
+ *
+ * The fix was to track all moves taken prior to reaching the current location in array [v], this fills [v] with
+ * a "snake" of set values. Similar to an actual game of snake, if the next move causes you to intersect yourself (the
+ * string of locations you passed) then you consider that cell to be a "wall" (returning [Int.MAX_VALUE]).
+ *
  * However, this lead to another problem. When using memoization and filling up [m] with the intermediate results,
  * you may put in [m] a value that wasn't the result of a "full" exploration, meaning that you've skipped exploring
  * a direction (in my case the 'up' direction) because you came from it. This fills [m] with wrong values.
- * To fix this I added the [f] flag, that is flipped if we skip a direction, this tells us not to log the result in [m]
- * and to wait until we come from a different direction that allows us fully explore it (in my case the 'down'
- * direction).
+ * To fix this I added the [f] flag which is flipped if we skip a direction. This tells us not to log the result in [m]
+ * and to wait until we come from a different direction (in my case the 'down' direction) that allows us fully explore
+ * the cell.
  */
 
 private val n = File("res/p081_matrix.txt")

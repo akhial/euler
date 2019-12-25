@@ -4,35 +4,49 @@ import java.io.File
 import kotlin.math.min
 
 /**
- * TODO Solve
+ * My initial approach was similar to problem 81, just added the direction r - 1 (up) and tweaked the stop condition
+ * (reaching the end column). This causes an infinite loop as to explore the lower cell you need to explore the upper
+ * one and vice-versa.
+ * First remedy was to track all moves taken prior to reaching the current location in array [v], this fills [v] with
+ * a "snake" of true values amidst the false ones. Similar to an actual game of snake, if the next move causes you to
+ * intersect yourself (the string of locations you passed) then you consider that cell to be a "wall" (returning
+ * [Int.MAX_VALUE]).
+ * However, this lead to another problem. When using memoization and filling up [m] with the intermediate results,
+ * you may put in [m] a value that wasn't the result of a "full" exploration, meaning that you've skipped exploring
+ * a direction (in my case the 'up' direction) because you came from it. This fills [m] with wrong values.
+ * To fix this I added the [f] flag, that is flipped if we skip a direction, this tells us not to log the result in [m]
+ * and to wait until we come from a different direction that allows us fully explore it (in my case the 'down'
+ * direction).
  */
 
 private val n = File("res/p081_matrix.txt")
         .useLines { l -> l.map { it.split(",").map { s -> s.toInt() }.toIntArray() }.toList() }
-private val s = 5
-private val m = Array(s) { IntArray(s) }
-private val v = Array(s) { BooleanArray(s) }
+private val m = Array(n.size) { IntArray(n.size) }
+private val v = Array(n.size) { BooleanArray(n.size) }
+private var f = false
 
-fun pathSumThreeWays(): Int {
-    for(r in 0 until s) {
-        println(explore(r, 0))
-        m.forEach { it.forEach { print("$it\t") }; println() }
-    }
-    return 0
-}
+fun pathSumThreeWays() = n.indices.map { explore(it, 0) }.min() ?: 0
 
 private fun explore(r: Int, c: Int): Int {
-    if(v[r][c]) return Int.MAX_VALUE
-    if(m[r][c] != 0) return m[r][c]
-    v[r][c] = true
-    val l = s - 1
-    val x = n[r][c] + when {
-        c == l -> 0
-        r == 0 -> min(explore(r, c + 1), explore(r + 1, c))
-        r == l -> min(explore(r, c + 1), explore(r - 1, c))
-        else -> minOf(explore(r, c + 1), explore(r - 1, c), explore(r + 1, c))
+    if(v[r][c]) {
+        f = true
+        return Int.MAX_VALUE
     }
-    m[r][c] = x
+    v[r][c] = true
+    val x = if(m[r][c] != 0) {
+        m[r][c]
+    } else {
+        val l = n.size - 1
+        val x = n[r][c] + when {
+            c == l -> 0
+            r == 0 -> min(explore(r, c + 1), explore(r + 1, c))
+            r == l -> min(explore(r, c + 1), explore(r - 1, c))
+            else -> minOf(explore(r, c + 1), explore(r + 1, c), explore(r - 1, c))
+        }
+        if(!f) m[r][c] = x
+        f = false
+        x
+    }
     v[r][c] = false
     return x
 }

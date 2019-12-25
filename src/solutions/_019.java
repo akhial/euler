@@ -19,7 +19,6 @@ public class _019 {
         while(year != 2001) {
             if(weekday == 0 && day == 1) {
                 count++;
-                System.out.println(dayName(weekday) + " " + day + "/" + month + "/" + year);
             }
             day++;
             weekday++;

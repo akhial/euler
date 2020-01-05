@@ -88,6 +88,7 @@ class SolutionsTest {
     @Test fun p080() = assertEquals("6cc501a25298e4051886ef1a126e9484", squareRootDigitalExpansion().md5())
     @Test fun p081() = assertEquals("f9ffec84499832add77e6a8bb00246ec", pathSumTwoWays().md5())
     @Test fun p082() = assertEquals("e6b3b1cd89b018d4754cf63863f6690a", pathSumThreeWays().md5())
+    @Test fun p083() = assertEquals("61b28c4fbe8560003ee50fa5619d7a1e", pathSumFourWays().md5())
 
     private fun toHexString(bytes: ByteArray): String {
         val hexString = StringBuilder()

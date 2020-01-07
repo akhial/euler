@@ -2,6 +2,7 @@ package math
 
 import org.junit.Assert
 import org.junit.Test
+import kotlin.test.assertEquals
 
 class IntegerUtilsTest {
 
@@ -60,5 +61,14 @@ class IntegerUtilsTest {
         Assert.assertEquals(true, 41063625.isPermutationOf(66430125))
         Assert.assertEquals(false, 123450.isPermutationOf(54321))
         Assert.assertEquals(true, 10010000000001.isPermutationOf(10000000000011))
+    }
+
+    @Test
+    fun isqrt() {
+        assertEquals(5, isqrt(27))
+        assertEquals(10, isqrt(101))
+        assertEquals(2, isqrt(6))
+        assertEquals(1, isqrt(3))
+        assertEquals(2, isqrt(8))
     }
 }

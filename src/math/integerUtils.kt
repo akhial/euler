@@ -1,6 +1,7 @@
 package math
 
 import java.math.BigInteger
+import kotlin.math.abs
 import kotlin.math.roundToInt
 
 private val smallFactorials = longArrayOf(
@@ -90,6 +91,19 @@ fun powerOfTen(a: Int): Long {
 fun gcd(a: Int, b: Int) = gcd(a.toLong(), b.toLong()).toInt()
 
 fun gcd(a: Long, b: Long): Long = if(b == 0L) a else gcd(b, a%b)
+
+fun isqrt(n: Int): Int {
+    var x = n
+    var r = 1
+    while(r >= 1) {
+        val k = (x + n/x)/2
+        val c = k - x
+        if(c == 1) break
+        r = abs(c)
+        x = k
+    }
+    return x
+}
 
 operator fun <T : Number> T.get(index: Int): Int {
     val a = length() - index - 1

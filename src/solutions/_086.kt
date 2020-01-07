@@ -3,11 +3,12 @@ package solutions
 import math.isqrt
 
 /**
- * By unfolding a AxBxC cuboid we find that the shortest distance is always sqrt(A^2 + (B + C)^2) when A>=B>=C.
- * So for each A (in our case the 'm' we're looking for) we check all possible sums x = B + C where x is in [2; 2A]
- * because B <= A && C <= A implies B + C <= 2A.
- * For each possible x = B + C check if the shortest distance is an integer. Then add the number of valid combinations
- * of B and C giving that sum to the total integer-distance-cuboid count.
+ * By unfolding an AxBxC cuboid we find that the shortest distance to the fly is always sqrt(A^2 + (B + C)^2)
+ * when A>=B>=C.
+ * So for each m = A we check all possible sums x = B + C where x is in [2; 2A], because B <= A && C <= A implies
+ * B + C <= 2A.
+ * For each x check if the shortest distance is an integer. Then add the number of valid combinations of B and C giving
+ * that sum to the total integer-distance-cuboid count.
  *
  * If x <= A, the number of valid combinations is equal to the total number of combinations (B, C) satisfying B + C = x
  * minus the number of combinations where B < C.

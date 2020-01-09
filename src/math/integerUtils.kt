@@ -76,9 +76,11 @@ fun bigFact(n: Int): BigInteger {
     }
 }
 
+fun initSieve(n: Int) = PrimeSieve.getSieve().sieve(n)
+
 fun phi(n: Int): Int {
     var r = 1.0
-    for(p in PrimeFactors.of(n).factors) r *= 1 - (1.0/p.first)
+    for(p in PrimeFactors.of(n)) r *= 1 - (1.0/p.first)
     return (n*r).roundToInt()
 }
 

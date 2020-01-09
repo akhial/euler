@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 public class PrimeSieve {
 
-    private int maxRequestedPrimes = 0;
+    private int maxCachedPrimes = 0;
+    private int maxSievedPrimes = 0;
     private int[] primes = null;
     private ArrayList<Integer> cache = new ArrayList<>();
     private static PrimeSieve instance = new PrimeSieve();
@@ -24,14 +25,15 @@ public class PrimeSieve {
     }
 
     public void reset() {
-        maxRequestedPrimes = 0;
+        maxCachedPrimes = 0;
+        maxSievedPrimes = 0;
         cache = new ArrayList<>();
     }
 
     private ArrayList<Integer> getPrimeList(int n, int limit) {
         ArrayList<Integer> result;
         cache.ensureCapacity(limit);
-        if(n >= maxRequestedPrimes) {
+        if(n >= maxCachedPrimes) {
             if(cache.isEmpty()) {
                 cache.add(2);
             }
@@ -41,6 +43,7 @@ public class PrimeSieve {
                     cache.add(i);
                 }
             }
+            maxCachedPrimes = n;
             result = cache;
         } else {
             result = new ArrayList<>();
@@ -61,12 +64,13 @@ public class PrimeSieve {
     }
 
     public void sieve(int n) {
-        if(n < 2 || n <= maxRequestedPrimes) {
+        if(n < 2 || n <= maxSievedPrimes) {
             return;
         }
         int size = n/64 + 1;
-        if(maxRequestedPrimes == 0) {
+        if(maxSievedPrimes == 0) {
             primes = new int[size];
+            setComposite(1);
         } else {
             int[] newPrimes = new int[size];
             System.arraycopy(primes, 0, newPrimes, 0, primes.length);
@@ -76,13 +80,13 @@ public class PrimeSieve {
             if(isComposite(i) == 0) {
                 int j = i*i;
                 int k = i << 1;
-                while(j <= maxRequestedPrimes) j += k;
+                while(j <= maxSievedPrimes) j += k;
                 for(; j <= n; j += k) {
                     setComposite(j);
                 }
             }
         }
-        maxRequestedPrimes = Math.max(maxRequestedPrimes, n);
+        maxSievedPrimes = Math.max(maxSievedPrimes, n);
     }
 
     public boolean isPrime(int n) {
@@ -95,9 +99,6 @@ public class PrimeSieve {
         int limit = (int) (n/Math.log(n - 1.5));
         if(n < 2) {
             return new ArrayList<>();
-        }
-        if(n <= maxRequestedPrimes) {
-            return getPrimeList(n, limit);
         }
         sieve(n);
         return getPrimeList(n, limit);

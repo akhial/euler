@@ -1,6 +1,7 @@
 package solutions
 
 import math.PrimeFactors
+import math.initSieve
 import math.phi
 
 /**
@@ -18,6 +19,7 @@ import math.phi
 fun totientMaximum(): Int {
     var max = 0.0
     var maxC = 0
+    initSieve(500000)
 
     for(i in 1..500000) {
         val c = 2*i

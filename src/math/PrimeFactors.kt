@@ -2,7 +2,7 @@ package math
 
 import kotlin.math.pow
 
-class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
+class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>): Iterable<Pair<Int, Int>> {
     companion object {
         private var primes = PrimeSieve.getSieve().getPrimes(1000)
 
@@ -15,8 +15,9 @@ class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
                 return PrimeFactors(f)
             }
 
-            if(n > primes.last()*primes.last())
-                primes = PrimeSieve.getSieve().getPrimes(n)
+            val l = primes.last()
+            if(n > l*l)
+                primes = PrimeSieve.getSieve().getPrimes(2*l)
 
             var r = n
             var i = 0
@@ -30,7 +31,7 @@ class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
                 }
                 if(c != 0) {
                     f.add(Pair(p, c))
-                    if(r.isPrime()) s = true
+                    if(PrimeSieve.getSieve().isPrime(r)) s = true
                 }
                 i++
             }
@@ -42,6 +43,10 @@ class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
     fun value() = factors.map { it.first.toDouble().pow(it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
 
     fun count() = factors.count()
+
+    override fun iterator(): Iterator<Pair<Int, Int>> {
+        return factors.iterator()
+    }
 
     override fun equals(other: Any?): Boolean {
         if(this === other) return true

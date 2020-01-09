@@ -1,7 +1,6 @@
 package solutions
 
 import math.PrimeFactors
-import math.initSieve
 
 /**
  * Iterates over n using memoization to save previously calculated factors. Always calculating the
@@ -14,7 +13,7 @@ fun distinctPrimesFactors(): Int {
     val factors = arrayListOf<PrimeFactors>()
     var found = false
     var n = 0
-    initSieve(100000)
+    PrimeFactors.init(140000)
 
     (0 until 4).mapTo(factors) { PrimeFactors.of(it) }
     while(!found) {

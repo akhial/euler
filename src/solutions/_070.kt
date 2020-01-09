@@ -1,6 +1,6 @@
 package solutions
 
-import math.initSieve
+import math.PrimeFactors
 import math.isPermutationOf
 import math.phi
 
@@ -11,7 +11,7 @@ import math.phi
 fun totientPermutation(): Int {
     var min = Double.MAX_VALUE
     var minC = 0
-    initSieve(10_000_000)
+    PrimeFactors.init(10_000_000)
 
     for(c in 2..10_000_000) {
         val phi = phi(c)

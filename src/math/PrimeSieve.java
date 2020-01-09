@@ -90,6 +90,9 @@ public class PrimeSieve {
     }
 
     public boolean isPrime(int n) {
+        if(n%2 == 0) {
+            return false;
+        }
         sieve(n);
         return isComposite(n) == 0;
     }

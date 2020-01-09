@@ -9,6 +9,9 @@ class PrimeSieveTest {
     fun isPrime() {
         PrimeSieve.getSieve().reset()
         assertEquals(10000007.isPrime(), PrimeSieve.getSieve().isPrime(10000007))
+        PrimeSieve.getSieve().reset()
+        PrimeSieve.getSieve().sieve(80000)
+        assertEquals(false, PrimeSieve.getSieve().isPrime(4))
     }
 
     @Test

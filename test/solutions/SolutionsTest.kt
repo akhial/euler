@@ -93,6 +93,7 @@ class SolutionsTest {
     @Test fun p085() = assertEquals("92bf5e6240737e0326ea59846a83e076", countingRectangles().md5())
     @Test fun p086() = assertEquals("f5c3dd7514bf620a1b85450d2ae374b1", cuboidRoute().md5())
     @Test fun p087() = assertEquals("e7fb7907f1af626cc42e787e367ec602", primePowerTriples().md5())
+    @Test fun p088() = assertEquals("ffde7251f43906d31534ae69fa555757", productSumNumbers().md5())
 
     private fun toHexString(bytes: ByteArray): String {
         val hexString = StringBuilder()

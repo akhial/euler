@@ -43,4 +43,3 @@ fun diophantineEquation(): Int {
     }
     return maxD
 }
-

@@ -26,4 +26,3 @@ fun orderedFractions(): Int {
     }
     return minN
 }
-

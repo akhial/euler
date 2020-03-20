@@ -23,4 +23,3 @@ fun lychrelNumbers(): Int {
     }
     return c
 }
-

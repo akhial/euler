@@ -15,5 +15,5 @@ fun digitFifthPowers(): Int = (2..max)
         .filter { it.isSumExpressible(5) }
         .sum()
 
-private fun Int.isSumExpressible(exponent: Int): Boolean =
+private fun Int.isSumExpressible(exponent: Int) =
         this == (1..this.length()).sumBy { this[it - 1].toDouble().pow(exponent.toDouble()).toInt() }

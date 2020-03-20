@@ -16,4 +16,3 @@ fun powerfulDigitSum(): Int {
     }
     return max
 }
-

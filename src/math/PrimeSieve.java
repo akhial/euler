@@ -3,6 +3,7 @@ package math;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Bitwise functions by Arnav Kr. Mandal from GeeksForGeeks.
@@ -32,7 +33,8 @@ public class PrimeSieve {
 
     private ArrayList<Integer> getPrimeList(int n) {
         ArrayList<Integer> result;
-        cache.ensureCapacity((int) (n/Math.log(n - 1.5)));
+        int limit = (int) (n/Math.log(n - 1.5));
+        cache.ensureCapacity(limit);
         if(n >= maxCachedPrimes) {
             if(cache.isEmpty()) {
                 cache.add(2);
@@ -44,14 +46,10 @@ public class PrimeSieve {
                 }
             }
             maxCachedPrimes = n;
-            result = cache;
+            result = new ArrayList<>(cache);
         } else {
-            result = new ArrayList<>();
-            //TODO use std search function to find stop index
-            for(int p : cache) {
-                if(p > n) break;
-                result.add(p);
-            }
+            int index = Math.abs(Arrays.binarySearch(cache.toArray(), n)) - 1;
+            result = new ArrayList<>(cache.subList(0, index));
         }
         return result;
     }

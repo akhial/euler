@@ -30,9 +30,9 @@ public class PrimeSieve {
         cache = new ArrayList<>();
     }
 
-    private ArrayList<Integer> getPrimeList(int n, int limit) {
+    private ArrayList<Integer> getPrimeList(int n) {
         ArrayList<Integer> result;
-        cache.ensureCapacity(limit);
+        cache.ensureCapacity((int) (n/Math.log(n - 1.5)));
         if(n >= maxCachedPrimes) {
             if(cache.isEmpty()) {
                 cache.add(2);
@@ -47,6 +47,7 @@ public class PrimeSieve {
             result = cache;
         } else {
             result = new ArrayList<>();
+            //TODO use std search function to find stop index
             for(int p : cache) {
                 if(p > n) break;
                 result.add(p);
@@ -56,18 +57,18 @@ public class PrimeSieve {
     }
 
     private int isComposite(int x) {
-        return (primes[x/64] & (1 << ((x >> 1) & 31)));
+        return (primes[x >> 6] & (1 << ((x >> 1) & 31)));
     }
 
     private void setComposite(int x) {
-        primes[x/64] |= (1 << ((x >> 1) & 31));
+        primes[x >> 6] |= (1 << ((x >> 1) & 31));
     }
 
     public void sieve(int n) {
         if(n < 2 || n <= maxSievedPrimes) {
             return;
         }
-        int size = n/64 + 1;
+        int size = (n >> 6) + 1;
         if(maxSievedPrimes == 0) {
             primes = new int[size];
             setComposite(1);
@@ -80,7 +81,9 @@ public class PrimeSieve {
             if(isComposite(i) == 0) {
                 int j = i*i;
                 int k = i << 1;
-                while(j <= maxSievedPrimes) j += k;
+                while(j <= maxSievedPrimes) {
+                    j += k;
+                }
                 for(; j <= n; j += k) {
                     setComposite(j);
                 }
@@ -90,6 +93,9 @@ public class PrimeSieve {
     }
 
     public boolean isPrime(int n) {
+        if(n == 2) {
+            return true;
+        }
         if(n%2 == 0) {
             return false;
         }
@@ -99,11 +105,10 @@ public class PrimeSieve {
 
     @NotNull
     public ArrayList<Integer> getPrimes(int n) {
-        int limit = (int) (n/Math.log(n - 1.5));
         if(n < 2) {
             return new ArrayList<>();
         }
         sieve(n);
-        return getPrimeList(n, limit);
+        return getPrimeList(n);
     }
 }

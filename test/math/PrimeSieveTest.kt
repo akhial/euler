@@ -26,6 +26,9 @@ class PrimeSieveTest {
         assertEquals(getPrimes(l), PrimeSieve.getSieve().getPrimes(l))
         l = 125000
         assertEquals(getPrimes(l), PrimeSieve.getSieve().getPrimes(l))
+        l = 200000
+        PrimeSieve.getSieve().sieve(l)
+        assert(getPrimes(l).all { PrimeSieve.getSieve().isPrime(it) })
     }
 
     @Test

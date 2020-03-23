@@ -28,10 +28,9 @@ fun diophantineEquation(): Int {
 
         while(!found) {
             val cf = cfCalc(n)
-            val x = cf.second
-            val y = cf.first
+            val (y, x) = cf
 
-            if(x.times(x) - BigInteger.valueOf(d.toLong()).times(y).times(y) == BigInteger.ONE) {
+            if(x*x - BigInteger.valueOf(d.toLong())*y*y == BigInteger.ONE) {
                 if(x > maxX) {
                     maxX = x
                     maxD = d

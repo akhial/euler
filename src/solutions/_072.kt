@@ -1,5 +1,6 @@
 package solutions
 
+import math.PrimeFactors
 import math.phi
 
 /**
@@ -9,4 +10,7 @@ import math.phi
  * So we sum the values of phi(n) with n in [2, 1000000].
  */
 
-fun countingFractions() = (2..1000000).map { phi(it).toLong() }.sum()
+fun countingFractions(): Long {
+    PrimeFactors.init(1000000)
+    return (2..1000000).map { phi(it).toLong() }.sum()
+}

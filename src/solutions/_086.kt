@@ -31,8 +31,8 @@ fun cuboidRoute(): Int {
     while(c < 1_000_000) {
         for(x in 2..2*m) {
             val p = m*m + x*x
-            val isqrt = isqrt(p)
-            if(isqrt*isqrt == p) c += if(x <= m) x/2 else m + 1 - x/2
+            val i = isqrt(p)
+            if(i*i == p) c += if(x <= m) x/2 else m + 1 - x/2
         }
         m++
     }

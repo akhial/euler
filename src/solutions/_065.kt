@@ -14,8 +14,8 @@ private val cf = Array(100) { if(it == 0) 2 else if(it%3 == 2) 2*(it + 1)/3 else
 fun convergentsOfE(): Int = cfCalc(ArrayList(cf.asList())).second.toString().map { Character.getNumericValue(it) }.sum()
 
 fun cfCalc(cf: ArrayList<Int>): Pair<BigInteger, BigInteger> {
-    var c = Pair(BigInteger.ONE, BigInteger.valueOf(cf.last().toLong()))
-    for(i in cf.reversed().drop(1))
-        c = Pair(c.second, c.second.times(BigInteger.valueOf(i.toLong())) + c.first)
-    return c
+    var n = BigInteger.ONE
+    var d = BigInteger.valueOf(cf.last().toLong())
+    for(i in cf.reversed().drop(1)) n = d.also { d = d*BigInteger.valueOf(i.toLong()) + n }
+    return Pair(n, d)
 }

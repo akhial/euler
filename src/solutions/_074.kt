@@ -39,4 +39,4 @@ private fun floyd(n: Long, f: (Long) -> Long): Int {
     return s + l
 }
 
-private fun g(n: Long): Long = n.digits().map { fact(it.toInt()) }.sum()
+private fun g(n: Long) = n.digits().map { fact(it.toInt()) }.sum()

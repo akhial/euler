@@ -90,15 +90,17 @@ fun powerOfTen(a: Int): Long {
 
 fun gcd(a: Int, b: Int) = gcd(a.toLong(), b.toLong()).toInt()
 
-fun gcd(a: Long, b: Long): Long = if(b == 0L) a else gcd(b, a%b)
+tailrec fun gcd(a: Long, b: Long): Long = if(b == 0L) a else gcd(b, a%b)
 
-fun isqrt(n: Int): Int {
+fun isqrt(n: Int): Int = isqrt(n.toLong()).toInt()
+
+fun isqrt(n: Long): Long {
     var x = n
-    var r = 1
+    var r = 1L
     while(r >= 1) {
         val k = (x + n/x)/2
         val c = k - x
-        if(c == 1) break
+        if(c == 1L) break
         r = abs(c)
         x = k
     }
@@ -146,7 +148,7 @@ fun Long.reverse(): Long {
     return result
 }
 
-fun <T : Number> T.isPrime() = PrimeUtils.isPrime(toLong())
+fun <T : Number> T.isPrime() = PrimeUtils.isPrime(toInt())
 
 fun <T : Number> T.isPermutationOf(o: T): Boolean {
     val a = toLong()

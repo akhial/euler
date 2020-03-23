@@ -71,4 +71,10 @@ class IntegerUtilsTest {
         assertEquals(1, isqrt(3))
         assertEquals(2, isqrt(8))
     }
+
+    @Test
+    fun gcd() {
+        assertEquals(5, gcd(5, 25))
+        assertEquals(17, gcd(17*25, 17*103))
+    }
 }

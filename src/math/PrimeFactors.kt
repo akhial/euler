@@ -2,10 +2,9 @@ package math
 
 import kotlin.math.pow
 
-private var max = 0
-
-class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) : Iterable<Pair<Int, Int>> {
+class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
     companion object {
+        private var max = 0
         private var primes = arrayListOf(0)
 
         fun init(n: Int) {
@@ -15,45 +14,65 @@ class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) : Iterable<Pair<Int, 
         }
 
         fun of(n: Int): PrimeFactors {
-            val f = arrayListOf<Pair<Int, Int>>()
-            if(n == 0) return PrimeFactors(f)
-
-            if(n < max && PrimeSieve.getSieve().isPrime(n)) {
-                return PrimeFactors(arrayListOf(Pair(n, 1)))
-            } else if(n.isPrime()) {
+            if(n < 0) {
+                throw IllegalArgumentException("factor of negative number")
+            }
+            if(n == 0) {
+                return PrimeFactors(arrayListOf())
+            }
+            if(n < max && PrimeSieve.getSieve().isPrime(n) || n.isPrime()) {
                 return PrimeFactors(arrayListOf(Pair(n, 1)))
             }
-
-            val l = primes.last().toLong()
-            if(n > l*l) primes = PrimeSieve.getSieve().getPrimes(2*isqrt(n))
-
-            var r = n
+            if(n > primes.last().toLong()*primes.last()) {
+                primes = PrimeSieve.getSieve().getPrimes(2*isqrt(n))
+            }
             var i = 0
-            var s = false
-            while(i < primes.size && r != 1 && !s) {
-                val p = primes[i]
-                var c = 0
-                while(r%p == 0) {
-                    r /= p
-                    c++
+            var remainder = n
+            var remainderIsPrime = false
+            val factors = arrayListOf<Pair<Int, Int>>()
+            while(i < primes.size && remainder != 1 && !remainderIsPrime) {
+                val prime = primes[i]
+                var exponent = 0
+                while(remainder%prime == 0) {
+                    remainder /= prime
+                    exponent++
                 }
-                if(c != 0) {
-                    f.add(Pair(p, c))
+                if(exponent != 0) {
+                    factors.add(Pair(prime, exponent))
                 }
-                if(PrimeSieve.getSieve().isPrime(r)) s = true
+                if(PrimeSieve.getSieve().isPrime(remainder)) {
+                    remainderIsPrime = true
+                }
                 i++
             }
-            if(s) f.add(Pair(r, 1))
-            return PrimeFactors(f)
+            if(remainderIsPrime) {
+                factors.add(Pair(remainder, 1))
+            }
+            return PrimeFactors(factors)
         }
     }
 
-    fun count() = factors.count()
-
-    fun value() = factors.map { it.first.toDouble().pow(it.second.toDouble()).toInt() }.reduce { t, x -> t*x }
-
-    override fun iterator(): Iterator<Pair<Int, Int>> {
-        return factors.iterator()
+    fun divisors(): List<Int> {
+        val exponents = IntArray(factors.size)
+        val divisors = mutableListOf<Int>()
+        while(true) {
+            val divisor = factors
+                    .mapIndexed { index, factor -> factor.first.toDouble().pow(exponents[index]).toInt() }
+                    .reduce { product, factor -> product*factor }
+            divisors.add(divisor)
+            var i = 0
+            while(true) {
+                exponents[i]++
+                if(exponents[i] <= factors[i].second) {
+                    break
+                }
+                exponents[i] = 0
+                i++
+                if(i >= factors.size) {
+                    return divisors
+                }
+            }
+        }
     }
 
     override fun equals(other: Any?): Boolean {

@@ -18,10 +18,10 @@ fun distinctPrimesFactors(): Int {
     (0 until 4).mapTo(factors) { PrimeFactors.of(it) }
     while(!found) {
         factors.add(PrimeFactors.of(n + 4))
-        if(factors[n].count() == 4 &&
-                factors[n + 1].count() == 4 &&
-                factors[n + 2].count() == 4 &&
-                factors[n + 3].count() == 4) found = true
+        if(factors[n].factors.count() == 4 &&
+                factors[n + 1].factors.count() == 4 &&
+                factors[n + 2].factors.count() == 4 &&
+                factors[n + 3].factors.count() == 4) found = true
         n++
     }
     return n - 1

@@ -6,6 +6,10 @@ import kotlin.math.sqrt
 /**
  * The minimal distance occurs in the first solution found when iterating in order.
  * Just iterate over the pentagonal numbers while checking the sum and difference for pentagonal-ity.
+ *
+ * A number is pentagonal if it can be written in the form n = 0.5(x + 1)(3(x + 1) - 1), so we check if the quadratic
+ * equation 3x² + 5x + 2 - 2n = 0 has an integer positive solution.
+ * The positive solution is x = (-b + sqrt(b² - 4ac))/2a = (-5 + sqrt(25 - 12*(2 - 2*n)))/6.
  */
 
 private const val max = 2200

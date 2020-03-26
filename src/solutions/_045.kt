@@ -5,6 +5,8 @@ import kotlin.math.sqrt
 
 /**
  * Check each triangular after the 285th for pentagonal-ity and hexagonal-ity. Stop at the first one found.
+ *
+ * See _044.kt.
  */
 
 fun triangularPentagonalAndHexagonal(): Long {

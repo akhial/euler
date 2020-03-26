@@ -3,6 +3,7 @@ package math
 import kotlin.math.pow
 
 class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
+
     companion object {
         private var max = 0
         private var primes = arrayListOf(0)
@@ -77,12 +78,13 @@ class PrimeFactors(val factors: ArrayList<Pair<Int, Int>>) {
 
     override fun equals(other: Any?): Boolean {
         if(this === other) return true
-        if(javaClass != other?.javaClass) return false
-
+        if(javaClass != other?.javaClass) {
+            return false
+        }
         other as PrimeFactors
-
-        if(!factors.containsAll(other.factors)) return false
-
+        if(!factors.containsAll(other.factors)) {
+            return false
+        }
         return true
     }
 

@@ -2,58 +2,44 @@ package math;
 
 public class PrimeUtils {
 
-    public static boolean isPrime(int n) {
-        return isPrime((long) n);
+    public static boolean isPrime(int i) {
+        return isPrime((long) i);
     }
 
-    public static boolean isPrime(long n) {
-        if(n < 2) return false;
-        if(n == 2 || n == 3) return true;
-        if(n%2 == 0 || n%3 == 0) return false;
-        long sqrtN = (long) Math.sqrt(n) + 1;
+    public static boolean isPrime(long l) {
+        if(l < 2) {
+            return false;
+        }
+        if(l == 2 || l == 3) {
+            return true;
+        }
+        if(l%2 == 0 || l%3 == 0) {
+            return false;
+        }
+        long sqrtN = (long) Math.sqrt(l) + 1;
         for(long i = 6L; i <= sqrtN; i += 6) {
-            if(n%(i - 1) == 0 || n%(i + 1) == 0) return false;
+            if(l%(i - 1) == 0 || l%(i + 1) == 0) {
+                return false;
+            }
         }
         return true;
     }
 
-    // Count number of set bits in an int
-    private static int popCount(int n) {
-        n -= (n >>> 1) & 0x55555555;
-        n = ((n >>> 2) & 0x33333333) + (n & 0x33333333);
-        n = ((n >> 4) & 0x0F0F0F0F) + (n & 0x0F0F0F0F);
-        return (n*0x01010101) >> 24;
-    }
-
-    // Speed up counting by counting the primes per
-    // array slot and not individually. This yields
-    // another factor of about 1.24 or so.
     public static int nthPrime(int n) {
-        if(n < 2) return 2;
-        if(n == 2) return 3;
-        if(n == 3) return 5;
+        if(n < 2) {
+            return 2;
+        }
+        if(n == 2) {
+            return 3;
+        }
+        if(n == 3) {
+            return 5;
+        }
         int limit, root, count = 2;
         limit = (int) (n*(Math.log(n) + Math.log(Math.log(n)))) + 3;
         root = (int) Math.sqrt(limit);
-        if(limit%6 == 0) {
-            limit = 2*(limit/6) - 1;
-
-        } else if(limit%6 == 5) {
-            limit = 2*(limit/6) + 1;
-
-        } else {
-            limit = 2*(limit/6);
-        }
-        switch(root%6) {
-            case 0:
-                root = 2*(root/6) - 1;
-                break;
-            case 5:
-                root = 2*(root/6) + 1;
-                break;
-            default:
-                root = 2*(root/6);
-        }
+        limit = getLimit(limit);
+        root = getLimit(root);
         int dim = (limit + 31) >> 5;
         int[] sieve = new int[dim];
         for(int i = 0; i < root; ++i) {
@@ -71,14 +57,16 @@ public class PrimeUtils {
                 for(int j = start; j < limit; j += s2) {
                     sieve[j >> 5] |= 1 << (j & 31);
                     j += s1;
-                    if(j >= limit) break;
+                    if(j >= limit) {
+                        break;
+                    }
                     sieve[j >> 5] |= 1 << (j & 31);
                 }
             }
         }
         int i;
         for(i = 0; count < n; ++i) {
-            count += popCount(~sieve[i]);
+            count += IntegerUtils.popCount(~sieve[i]);
         }
         --i;
         int mask = ~sieve[i];
@@ -87,5 +75,16 @@ public class PrimeUtils {
             count -= (mask >> p) & 1;
         }
         return 3*(p + (i << 5)) + 7 + (p & 1);
+    }
+
+    private static int getLimit(int limit) {
+        if(limit%6 == 0) {
+            limit = 2*(limit/6) - 1;
+        } else if(limit%6 == 5) {
+            limit = 2*(limit/6) + 1;
+        } else {
+            limit = 2*(limit/6);
+        }
+        return limit;
     }
 }

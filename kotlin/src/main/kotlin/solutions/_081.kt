@@ -7,7 +7,7 @@ import kotlin.math.min
  * Dynamic programming with recursion. Explore right and down at each value.
  */
 
-private val n = File("../res/p081_matrix.txt")
+private val n = File("../res/081_matrix.txt")
         .useLines { l -> l.map { it.split(",").map { s -> s.toInt() }.toIntArray() }.toList() }
 private val m = Array(n.size) { IntArray(n.size) }
 

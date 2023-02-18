@@ -12,7 +12,7 @@ import java.nio.file.Paths
  */
 
 fun passcodeDerivation(): Int {
-    val l = Files.lines(Paths.get("../res/p079_keylog.txt")).sorted().distinct().toList()
+    val l = Files.lines(Paths.get("../res/079_keylog.txt")).sorted().distinct().toList()
     for(i in 70000000..100000000) {
         val d = i.digits()
         if(d.any { it == 4 || it == 5 }) continue

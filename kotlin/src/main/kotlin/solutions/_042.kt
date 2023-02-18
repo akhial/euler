@@ -11,7 +11,7 @@ import java.util.regex.Pattern
 
 private val triangles = Array(30) { (0.5*it*(it + 1)).toInt() }
 
-fun codedTriangleNumbers() = Files.lines(Paths.get("../res/p042_words.txt"))
+fun codedTriangleNumbers() = Files.lines(Paths.get("../res/042_words.txt"))
         .map { it.replace("\"", "") }
         .map { it.replace(",", " ") }
         .flatMap { Pattern.compile("\\s+").splitAsStream(it) }

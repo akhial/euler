@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 mod _001;
 mod _002;
 mod math;

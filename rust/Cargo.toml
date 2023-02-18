@@ -1,0 +1,11 @@
+[package]
+name = "euler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+hex-literal = "0.3.4"
+md-5 = "0.10.5"
+
+[profile.test]
+opt-level = 3

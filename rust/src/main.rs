@@ -2,6 +2,7 @@
 
 mod _001;
 mod _002;
+mod _089;
 mod math;
 
 fn main() {}
@@ -9,9 +10,10 @@ fn main() {}
 #[cfg(test)]
 mod tests {
     use crate::_001::multiples_of_3_or_5;
+    use crate::_002::even_fibonacci_numbers;
+    use crate::_089::roman_numerals;
     use hex_literal::hex;
     use md5::{Digest, Md5};
-    use crate::_002::even_fibonacci_numbers;
 
     fn md5<T: ToString>(d: T) -> Vec<u8> {
         let mut hasher = Md5::new();
@@ -32,6 +34,14 @@ mod tests {
         assert_eq!(
             md5(even_fibonacci_numbers()),
             hex!("4194eb91842c8e7e6df099ca73c38f28")
+        )
+    }
+
+    #[test]
+    fn _089() {
+        assert_eq!(
+            md5(roman_numerals()),
+            hex!("5c572eca050594c7bc3c36e7e8ab9550")
         )
     }
 }
